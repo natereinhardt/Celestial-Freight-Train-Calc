@@ -7,7 +7,7 @@ import ContractCreation from '@/components/ContractCreation.vue';
 <template>
   <main class="wrapper">
     <Estimation class="estimation" />
-    <Reasoning class="Reasoning" />
+    <Reasoning class="reasoning" />
     <ContractCreation class="contract-creation" />
   </main>
 </template>

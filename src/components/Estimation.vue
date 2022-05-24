@@ -11,7 +11,7 @@
     <div class="container">
         <h1 class="green"></h1>
         <h3>
-           Estimation
+            Estimation
         </h3>
     </div>
 </template>
@@ -28,7 +28,9 @@ h3 {
 }
 
 .container {
+    width: 25em;
     padding: .5em;
+    margin: .5em;
     /* display: flex; */
     background: green;
 }

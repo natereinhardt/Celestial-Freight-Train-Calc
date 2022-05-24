@@ -28,9 +28,10 @@ h3 {
 }
 
 .container {
+    width: 25em;
     padding: .5em;
+    margin: .5em;
     /* display: flex; */
     background: purple;
 }
-
 </style>

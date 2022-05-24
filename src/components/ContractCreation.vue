@@ -18,7 +18,8 @@ import CreateContract_4_Confirm from '@/components/CreateContract_4_Confirm.vue'
 @import '@/assets/base.css';
 
 .container {
-    padding: .5em;
+    width: 25em;
+    margin: .5em;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

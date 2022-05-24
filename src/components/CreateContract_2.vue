@@ -8,10 +8,11 @@
 </script>
 
 <template>
-    <div class="bg-sky-500/75">
-        <h1 class="green"></h1>
+    <div class="container bg-sky-500/75">
+        <h2 class=""><img alt="Ceca logo" class="logo" src="@/assets/contracts.png" width="35" height="35" />Create
+            Contract</h2>
         <h3>
-            CreateContract_2
+            Pick Items (2/4)
         </h3>
     </div>
 </template>
@@ -27,9 +28,10 @@ h3 {
     font-size: 1.2rem;
 }
 
-/* .container {
-    background: ;
-} */
+.container {
+    padding: .5em;
+    margin: .5em;
+}
 
 .greetings h1,
 .greetings h3 {

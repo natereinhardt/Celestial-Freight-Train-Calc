@@ -2,39 +2,51 @@
 import { RouterLink } from 'vue-router';
 </script>
 <template>
-    <header>
-        <img alt="Vue logo" class="logo" src="@/assets/CECA_Logo_Submit.png" width="75" height="75" />
-        <h2>Celestial Freight Train</h2>
-    </header>
+    <header class="top-nav">
+        <div class="title text-2xl">
+            <img alt="Ceca logo" class="logo" src="@/assets/CECA_Logo_Submit.png" width="75" height="75" />
+            <h1 class="brand">Celestial Freight Train</h1>
+        </div>
 
-    <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/documentation">Documentation</RouterLink>
-    </nav>
+        <nav class="nav">
+            <RouterLink to="/">Home</RouterLink>
+            <RouterLink to="/about">About</RouterLink>
+            <RouterLink to="/documentation">Documentation</RouterLink>
+        </nav>
+
+    </header>
 </template>
 
 <style scoped>
-h1 {
-    font-weight: 500;
-    font-size: 2.6rem;
-    top: -10px;
+.top-nav {
+    width: 25em;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
 }
 
-h3 {
-    font-size: 1.2rem;
+.brand {
+    width: 25em;
+    margin: auto;
+    width: 15em;
+    justify-self: center;
 }
 
-.greetings h1,
-.greetings h3 {
-    text-align: center;
+.title {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    order: 1;
+
 }
 
-@media (min-width: 1024px) {
-
-    .greetings h1,
-    .greetings h3 {
-        text-align: left;
-    }
+.nav {
+    width: 25em;
+    margin: auto;
+    order: 2;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
 }
 </style>

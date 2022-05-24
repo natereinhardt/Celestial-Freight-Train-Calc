@@ -1,13 +1,20 @@
 <script setup>
 import TitleBar from '@/components/TitleBar.vue';
-
+import FooterBar from '@/components/FooterBar.vue';
 import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <TitleBar />
-  <div class=wrapper>
-    <RouterView />
+  <div class="page-wrapper">
+    <div class="top-nav">
+      <TitleBar />
+    </div>
+    <div class=content-wrapper>
+      <RouterView />
+    </div>
+    <div class="footer">
+      <FooterBar />
+    </div>
   </div>
 </template>
 
@@ -22,13 +29,20 @@ import { RouterView } from 'vue-router';
   font-weight: normal;
 }
 
+.top-nav {
+  width: 100%;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
 }
-.wrapper {
+
+.page-wrapper {
   display: flex;
+  flex-flow: column;
 }
+
 .logo {
   display: block;
   margin: 0 auto 2rem;

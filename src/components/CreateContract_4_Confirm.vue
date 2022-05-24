@@ -8,10 +8,11 @@
 </script>
 
 <template>
-    <div class="bg-sky-500/25">
-        <h1 class="green"></h1>
+    <div class="container bg-slate-800">
+        <h2 class=""><img alt="Ceca logo" class="logo" src="@/assets/contracts.png" width="35" height="35" />Create
+            Contract</h2>
         <h3>
-            CreateContract_4_Confirm
+            Confirm (4/4)
         </h3>
     </div>
 </template>
@@ -27,9 +28,12 @@ h3 {
     font-size: 1.2rem;
 }
 
-/* .container {
-    background: ;
-} */
+.container {
+    border-style: solid;
+    border-top: 25em;
+    border-color: var(--ccp-modal-top-border-color);;
+    margin: .5em;
+}
 
 .greetings h1,
 .greetings h3 {
