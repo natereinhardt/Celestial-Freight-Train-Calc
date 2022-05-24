@@ -12,7 +12,8 @@
         <h2 class=""><img alt="Ceca logo" class="logo" src="@/assets/contracts.png" width="35" height="35" />Create
             Contract</h2>
         <h3>
-            <img alt="Contract Courier logo" class="logo" src="@/assets/contractcourier.png" width="50" height="50" /> Confirm (4/4)
+            <img alt="Contract Courier logo" class="logo" src="@/assets/contractcourier.png" width="50" height="50" />
+            Confirm (4/4)
         </h3>
     </div>
 </template>
@@ -29,9 +30,10 @@ h3 {
 }
 
 .container {
-    border-style: solid;
+    border-style: dashed;
     border-top: 25em;
-    border-color: var(--ccp-modal-top-border-color);;
+    border-color: var(--ccp-modal-top-border-color);
+    ;
     margin: .5em;
 }
 

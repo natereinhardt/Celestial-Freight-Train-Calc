@@ -18,22 +18,22 @@ import { RouterView } from 'vue-router';
   </div>
 </template>
 
-<style>
+<style scoped>
 @import '@/assets/base.css';
-
-@font-face {
-  font-family: "Shentox";
-  src: url('@/assets/fonts/Shentox-light.ttf') format('truetype');
-}
 
 #app {
   font-family: "Shentox";
   font-size: 20px;
+  color: white;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
 
   font-weight: normal;
+}
+
+.content-wrapper {
+  margin: auto;
 }
 
 .top-nav {
@@ -46,6 +46,7 @@ header {
 }
 
 .page-wrapper {
+  margin: auto;
   display: flex;
   flex-flow: column;
 }
@@ -55,7 +56,6 @@ header {
   margin: 0 auto 2rem;
 }
 
-a,
 .green {
   text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
@@ -117,17 +117,7 @@ nav a:first-of-type {
     flex-wrap: wrap;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
 
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
 }
 </style>
