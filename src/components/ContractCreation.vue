@@ -7,17 +7,18 @@ import CreateContract_4_Confirm from '@/components/CreateContract_4_Confirm.vue'
 </script>
 
 <template>
-    <main class="wrapper">
+    <main class="container">
         <CreateContract_1 class="create-contract-1" />
         <CreateContract_2 class="create-contract-2" />
         <CreateContract_3 class="create-contract-3" />
         <CreateContract_4_Confirm class="create-contract-4-confirm" />
     </main>
 </template>
-<style>
+<style scoped>
 @import '@/assets/base.css';
 
-.wrapper {
+.container {
+    padding: .5em;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

@@ -8,7 +8,7 @@
 </script>
 
 <template>
-    <div class="bg-sky-500/100">
+    <div class="bg-sky-500/50">
         <h1 class="green"></h1>
         <h3>
             CreateContract_3

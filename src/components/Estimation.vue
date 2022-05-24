@@ -28,7 +28,8 @@ h3 {
 }
 
 .container {
-    display: flex;
+    padding: .5em;
+    /* display: flex; */
     background: green;
 }
 
