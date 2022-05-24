@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router';
 <template>
     <header>
         <img alt="Vue logo" class="logo" src="@/assets/CECA_Logo_Submit.png" width="75" height="75" />
-        <h2 class="text-3xl font-bold underline">Celestial Freight Train</h2>
+        <h2>Celestial Freight Train</h2>
     </header>
 
     <nav>

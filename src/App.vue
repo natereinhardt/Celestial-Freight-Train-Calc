@@ -1,18 +1,14 @@
 <script setup>
-import HelloWorld from '@/components/HelloWorld.vue';
-import TitleBar from './components/TitleBar.vue';
+import TitleBar from '@/components/TitleBar.vue';
+
 import { RouterView } from 'vue-router';
 </script>
 
 <template>
   <TitleBar />
-  <header>
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <RouterView />
+  <div class=wrapper>
+    <RouterView />
+  </div>
 </template>
 
 <style>
@@ -30,7 +26,9 @@ header {
   line-height: 1.5;
   max-height: 100vh;
 }
-
+.wrapper {
+  display: flex;
+}
 .logo {
   display: block;
   margin: 0 auto 2rem;

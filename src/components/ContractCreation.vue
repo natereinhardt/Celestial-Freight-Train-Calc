@@ -1,0 +1,42 @@
+<script setup>
+import CreateContract_1 from '@/components/CreateContract_1.vue';
+import CreateContract_2 from '@/components/CreateContract_2.vue';
+import CreateContract_3 from '@/components/CreateContract_3.vue';
+import CreateContract_4_Confirm from '@/components/CreateContract_4_Confirm.vue';
+
+</script>
+
+<template>
+    <main class="wrapper">
+        <CreateContract_1 class="create-contract-1" />
+        <CreateContract_2 class="create-contract-2" />
+        <CreateContract_3 class="create-contract-3" />
+        <CreateContract_4_Confirm class="create-contract-4-confirm" />
+    </main>
+</template>
+<style>
+@import '@/assets/base.css';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.create-contract-1 {
+    order: 1
+}
+
+.create-contract-2 {
+    order: 2
+}
+
+.create-contract-3 {
+    order: 3
+}
+
+.create-contract-4-confirm {
+    order: 4
+}
+</style>
