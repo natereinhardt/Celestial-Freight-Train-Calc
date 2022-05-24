@@ -7,14 +7,15 @@ import { RouterLink } from 'vue-router';
       alt="Vue logo"
       class="logo"
       src="@/assets/CECA_Logo_Submit.png"
-      width="125"
-      height="125"
+      width="75"
+      height="75"
     />
-    Hello World
+    <h2>Celestial Freight Train</h2>
   </header>
   <nav>
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/about">About</RouterLink>
+    <RouterLink to="/documentation">Documentation</RouterLink>
   </nav>
 </template>
 
