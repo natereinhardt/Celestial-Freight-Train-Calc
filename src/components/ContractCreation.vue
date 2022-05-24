@@ -7,17 +7,17 @@ import CreateContract_4_Confirm from '@/components/CreateContract_4_Confirm.vue'
 </script>
 
 <template>
-    <main class="container">
-        <CreateContract_1 class="create-contract-1" />
-        <CreateContract_2 class="create-contract-2" />
-        <CreateContract_3 class="create-contract-3" />
-        <CreateContract_4_Confirm class="create-contract-4-confirm" />
+    <main class="contracts-container">
+        <CreateContract_1 class="create-contract-1  bg-gray-800 bg-opacity-10" />
+        <CreateContract_2 class="create-contract-2  bg-gray-800 bg-opacity-10" />
+        <CreateContract_3 class="create-contract-3  bg-gray-800 bg-opacity-10" />
+        <CreateContract_4_Confirm class="create-contract-4-confirm  bg-gray-800 bg-opacity-10" />
     </main>
 </template>
 <style scoped>
 @import '@/assets/base.css';
 
-.container {
+.contracts-container {
     width: 25em;
     margin: .5em;
     display: flex;
@@ -25,7 +25,12 @@ import CreateContract_4_Confirm from '@/components/CreateContract_4_Confirm.vue'
     justify-content: space-evenly;
 }
 
-
+.container {
+    border-top: 1px;
+    border-color: var(--ccp-modal-top-border-color);
+    border-style: solid;
+    
+}
 .create-contract-1 {
     order: 1
 }
