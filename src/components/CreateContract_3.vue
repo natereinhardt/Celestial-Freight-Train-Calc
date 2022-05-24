@@ -12,7 +12,7 @@
         <h2 class=""><img alt="Ceca logo" class="logo" src="@/assets/contracts.png" width="35" height="35" />Create
             Contract</h2>
         <h3>
-            Select Options (3/4)
+            <img alt="Contract Courier logo" class="logo" src="@/assets/contractcourier.png" width="50" height="50" />Select Options (3/4)
         </h3>
     </div>
 </template>

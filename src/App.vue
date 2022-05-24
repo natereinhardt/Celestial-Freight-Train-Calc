@@ -21,7 +21,14 @@ import { RouterView } from 'vue-router';
 <style>
 @import '@/assets/base.css';
 
+@font-face {
+  font-family: "Shentox";
+  src: url('@/assets/fonts/Shentox-light.ttf') format('truetype');
+}
+
 #app {
+  font-family: "Shentox";
+  font-size: 20px;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;

@@ -8,11 +8,11 @@
 </script>
 
 <template>
-    <div class="container bg-slate-800">
+    <div class="container bg-gray-800 bg-opacity-10">
         <h2 class=""><img alt="Ceca logo" class="logo" src="@/assets/contracts.png" width="35" height="35" />Create
             Contract</h2>
         <h3>
-            Confirm (4/4)
+            <img alt="Contract Courier logo" class="logo" src="@/assets/contractcourier.png" width="50" height="50" /> Confirm (4/4)
         </h3>
     </div>
 </template>
