@@ -60,15 +60,9 @@ import { RouterLink } from 'vue-router';
     margin: 0 1rem 0 2rem;
 }
 
-.green {
-    text-decoration: none;
-    color: hsla(160, 100%, 37%, 1);
-    transition: 0.4s;
-}
-
 @media (hover: hover) {
     a:hover {
-        background-color: hsla(160, 100%, 37%, 0.2);
+        background-color: hsla(236, 48%, 36%, 0.2);
     }
 }
 
@@ -77,14 +71,6 @@ nav {
     font-size: 12px;
     text-align: center;
     margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-    color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-    background-color: transparent;
 }
 
 nav a {

@@ -1,50 +1,52 @@
 <script setup>
-// defineProps({
-//     msg: {
-//         type: String,
-//         required: true,
-//     },
-// });
+import contractImg from '@/assets/contracts.png'
+import CreateContractHeader from '@/components/CreateContractHeader.vue';
 </script>
 
 <template>
+    <div class="container">
+        <CreateContractHeader title='Create
+            Contract' :titleImage="contractImg" subHeader='Select Contract Type (1/4)' :subHeaderImage='contractImg' />
+        <div class="contract-type">
+            <a>Contract Type</a>
+            <div class="flex justify-left">
+                <div>
+                        <div class="radio">
+                            <input id="radio-1" name="radio" type="radio" disabled >
+                            <label for="radio-1" class="radio-label">Auction</label>
+                        </div>
 
-    <div class="container bg-sky-500/100">
-        <h2 class=""><img alt="Ceca logo" class="logo" src="@/assets/contracts.png" width="35" height="35" />Create
-            Contract</h2>
-        <h3>
-            <img alt="Ceca logo" class="logo" src="@/assets/contracts.png" width="50" height="50" /> Select Contract
-            Type (1/4)
-        </h3>
+                        <div class="radio">
+                            <input id="radio-2" name="radio" type="radio" disabled checked>
+                            <label for="radio-2" class="radio-label">Courier</label>
+                        </div>
+
+                        <div class="radio">
+                            <input id="radio-3" name="radio" type="radio" disabled>
+                            <label for="radio-3" class="radio-label">Item Exchange</label>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="availability">
+            <a>Availability</a>
+        </div>
+        <div class="footer">
+
+        </div>
     </div>
 </template>
 
 <style scoped>
-h1 {
-    font-weight: 500;
-    font-size: 2.6rem;
-    top: -10px;
-}
-
-h3 {
-    font-size: 1.2rem;
-}
 
 .container {
     padding: .5em;
     margin: .5em;
 }
 
-.greetings h1,
-.greetings h3 {
-    text-align: center;
-}
+.contract-type {}
 
-@media (min-width: 1024px) {
+.availability {}
 
-    .greetings h1,
-    .greetings h3 {
-        text-align: left;
-    }
-}
+.footer {}
 </style>
