@@ -26,13 +26,17 @@ defineProps({
             <h2 class="">{{ title }}</h2>
         </div>
         <div class="subHeader">
-            <img alt="Contract Courier logo" class="logo" :src='subHeaderImage' width="50" height="50" />
+            <img alt="Contract Courier logo" class="logo subHeader-img" :src='subHeaderImage' width="50" height="50" />
             <h3>{{ subHeader }}</h3>
         </div>
     </div>
 </template>
 
 <style scoped>
+
+.subHeader-img { 
+    filter: opacity(0.9) drop-shadow(0 0 0 rgb(0, 174, 255)); 
+}
 .container {
     width: 100%;
 }
