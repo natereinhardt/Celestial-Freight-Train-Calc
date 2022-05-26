@@ -2,6 +2,7 @@
 import TitleBar from '@/components/TitleBar.vue';
 import FooterBar from '@/components/FooterBar.vue';
 import { RouterView } from 'vue-router';
+
 </script>
 
 <template>
@@ -20,6 +21,7 @@ import { RouterView } from 'vue-router';
 
 <style scoped>
 @import '@/assets/base.css';
+
 
 #app {
   font-family: "Shentox";
@@ -53,7 +55,7 @@ header {
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    background-color: var(--ccp-hover-color);
   }
 }
 

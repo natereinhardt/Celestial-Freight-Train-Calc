@@ -1,4 +1,13 @@
 <script setup>
+import Multiselect from '@vueform/multiselect'
+import { ref } from 'vue'
+const outbound = ref(null)
+const inbound = ref(null)
+const options = ref([
+    'Jita IV - Moon 4 - Caldari Navy Assembly Plant',
+    'W4E-IT - The Troll Empire',
+    'Y19P-1 - TIRE Sector Command Delta',
+])
 // defineProps({
 //     msg: {
 //         type: String,
@@ -11,15 +20,19 @@
     <div class="container estimation-container  bg-gray-800 bg-opacity-10">
         <h3>
             Estimation
+
         </h3>
         <div>
             Select the outbound and inbound stations
+
         </div>
         <div>
             Outbound (Station From):
+            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="outbound" :options="options" />
         </div>
         <div>
             Inbound (Station To):
+            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="inbound" :options="options" />
         </div>
         <div>
             Package Details
@@ -27,7 +40,8 @@
     </div>
 
 </template>
-
+<style src="@vueform/multiselect/themes/default.css">
+</style>
 <style scoped>
 h1 {
     font-weight: 500;

@@ -9,6 +9,7 @@
     "format": "prettier .  --write"
   },
   "dependencies": {
+    "@vueform/multiselect": "^2.3.4",
     "pinia": "^2.0.13",
     "vue": "^3.2.33",
     "vue-demi": "latest",
