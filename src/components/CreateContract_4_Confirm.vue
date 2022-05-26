@@ -19,10 +19,8 @@ import CreateContractHeader from '@/components/CreateContractHeader.vue';
 </template>
 
 <style scoped>
+
 .container {
-    border-style: dashed;
-    border-top: 25em;
-    border-color: var(--ccp-modal-top-border-color);
     margin: .5em;
 }
 </style>

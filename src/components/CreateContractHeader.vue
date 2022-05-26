@@ -20,7 +20,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="container">
+    <div>
         <div class='title'>
             <img alt="Contract logo" class="logo" :src='titleImage' width="35" height="35" />
             <h2 class="">{{ title }}</h2>
@@ -33,7 +33,6 @@ defineProps({
 </template>
 
 <style scoped>
-
 .subHeader-img { 
     filter: opacity(0.9) drop-shadow(0 0 0 rgb(0, 174, 255)); 
 }

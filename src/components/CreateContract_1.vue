@@ -4,7 +4,7 @@ import CreateContractHeader from '@/components/CreateContractHeader.vue';
 </script>
 
 <template>
-    <div class="container">
+    <div class="inner-container">
         <CreateContractHeader title='Create
             Contract' :titleImage="contractImg" subHeader='Select Contract Type (1/4)' :subHeaderImage='contractImg' />
         <div class="contract-type">
@@ -68,6 +68,12 @@ import CreateContractHeader from '@/components/CreateContractHeader.vue';
 </template>
 
 <style scoped>
+
+.inner-container {
+    padding: .5em;
+    margin: .5em;
+}
+
 .checkbox-container {
     margin-left: 2em;
 }
@@ -139,11 +145,6 @@ input[type=text]:focus {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-}
-
-.container {
-    padding: .5em;
-    margin: .5em;
 }
 
 .contract-type {}

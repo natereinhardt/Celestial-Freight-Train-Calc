@@ -8,7 +8,7 @@
 </script>
 
 <template>
-    <div class="container">
+    <div class="container  bg-gray-800 bg-opacity-10">
         <h1 class="green"></h1>
         <h3>
             Reasoning
@@ -31,7 +31,5 @@ h3 {
     width: 25em;
     padding: .5em;
     margin: .5em;
-    /* display: flex; */
-    background: purple;
 }
 </style>

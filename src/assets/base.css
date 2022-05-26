@@ -60,11 +60,16 @@
   position: relative;
   font-weight: normal;
 }
+.container { 
+  border-top: 1px;
+  border-color: var(--ccp-modal-top-border-color);
+  border-style: solid;
+  margin: .5em;
+}
 
 body {
   min-height: 100vh;
   color: white;
-  /* color: var(--color-text);  */
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
@@ -84,7 +89,6 @@ body {
 }
 
 .radio {
-  /* margin: 0.5rem; */
 }
 
 .radio input[type="radio"] {

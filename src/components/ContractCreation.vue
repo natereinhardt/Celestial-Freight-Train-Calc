@@ -7,7 +7,7 @@ import CreateContract_4_Confirm from '@/components/CreateContract_4_Confirm.vue'
 </script>
 
 <template>
-    <main class="contracts-container">
+    <main class="container contracts-container">
         <CreateContract_1 class="create-contract-1  bg-gray-800 bg-opacity-10" />
         <CreateContract_2 class="create-contract-2  bg-gray-800 bg-opacity-10" />
         <CreateContract_3 class="create-contract-3  bg-gray-800 bg-opacity-10" />
@@ -25,12 +25,6 @@ import CreateContract_4_Confirm from '@/components/CreateContract_4_Confirm.vue'
     justify-content: space-evenly;
 }
 
-.container {
-    border-top: 1px;
-    border-color: var(--ccp-modal-top-border-color);
-    border-style: solid;
-    
-}
 .create-contract-1 {
     order: 1
 }

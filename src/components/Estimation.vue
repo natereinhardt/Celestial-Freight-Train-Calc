@@ -8,12 +8,15 @@
 </script>
 
 <template>
-    <div class="container">
-        <h1 class="green"></h1>
+    <div class="container estimation-container  bg-gray-800 bg-opacity-10">
         <h3>
             Estimation
         </h3>
+        <div>
+            Select the outbound and inbound stations
+        </div>
     </div>
+
 </template>
 
 <style scoped>
@@ -27,12 +30,10 @@ h3 {
     font-size: 1.2rem;
 }
 
-.container {
+.estimation-container {
     width: 25em;
     padding: .5em;
     margin: .5em;
-    /* display: flex; */
-    background: green;
 }
 
 .greetings h1,
