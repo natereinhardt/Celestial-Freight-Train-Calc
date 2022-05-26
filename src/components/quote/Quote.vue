@@ -19,37 +19,37 @@
             To:
         </div>
         <div>
-            Volume in Cubic Meters (m^3)
+            Volume in Cubic Meters (m^3):
         </div>
         <div>
-            Jita Sell Value
+            Jita Sell Value:
         </div>
         <div>
             Inbound (Station To):
         </div>
         <div>
-            Collateral
+            Collateral:
         </div>
         <div>
-            Min Reward
+            Min Reward:
         </div>
         <div>
-            Max Volume
+            Max Volume:
         </div>
         <div>
-            Max Collateral
+            Max Collateral:
         </div>
         <div>
-            Total Reward
+            Total Reward:
         </div>
         <div>
-            Total Collateral
+            Total Collateral:
         </div>
         <div>
-            Volume Cost
+            Volume Cost:
         </div>
         <div>
-            Collateral Cost
+            Collateral Cost:
         </div>
     </div>
 

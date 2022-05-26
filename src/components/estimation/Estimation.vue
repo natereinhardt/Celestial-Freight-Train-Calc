@@ -35,7 +35,9 @@ const options = ref([
             <Multiselect class="bg-gray-800 bg-opacity-10" v-model="inbound" :options="options" />
         </div>
         <div>
-            Package Details
+            <span>Package Details:</span>
+            <p style="white-space: pre-line;">{{ message }}</p>
+            <textarea v-model="message" placeholder="Tritanium 1000 ..."></textarea>
         </div>
     </div>
 
