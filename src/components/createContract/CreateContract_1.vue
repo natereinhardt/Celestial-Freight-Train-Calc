@@ -1,6 +1,6 @@
 <script setup>
 import contractImg from '@/assets/contracts.png'
-import CreateContractHeader from '@/components/CreateContractHeader.vue';
+import CreateContractHeader from '@/components/createContract/CreateContractHeader.vue';
 </script>
 
 <template>
@@ -144,10 +144,10 @@ input[type=text]:focus {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-
+/* 
 .contract-type {}
 
 .availability {}
 
-.footer {}
+.footer {} */
 </style>

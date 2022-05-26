@@ -1,8 +1,8 @@
 <script setup>
-import CreateContract_1 from '@/components/CreateContract_1.vue';
-import CreateContract_2 from '@/components/CreateContract_2.vue';
-import CreateContract_3 from '@/components/CreateContract_3.vue';
-import CreateContract_4_Confirm from '@/components/CreateContract_4_Confirm.vue';
+import CreateContract_1 from '@/components/createContract/CreateContract_1.vue';
+import CreateContract_2 from '@/components/createContract/CreateContract_2.vue';
+import CreateContract_3 from '@/components/createContract/CreateContract_3.vue';
+import CreateContract_4_Confirm from '@/components/createContract/CreateContract_4_Confirm.vue';
 
 </script>
 

@@ -1,7 +1,7 @@
 <script setup>
-import Reasoning from '@/components/Reasoning.vue';
-import Estimation from '@/components/Estimation.vue';
-import ContractCreation from '@/components/ContractCreation.vue';
+import Quote from '@/components/quote/Quote.vue';
+import Estimation from '@/components/estimation/Estimation.vue';
+import ContractCreation from '@/components/createContract/ContractCreation.vue';
 import Welcome from '@/components/Welcome.vue'
 </script>
 
@@ -12,7 +12,7 @@ import Welcome from '@/components/Welcome.vue'
     </div>
     <div class="content-wrapper">
       <Estimation class="estimation" />
-      <Reasoning class="reasoning" />
+      <Quote class="quote" />
       <ContractCreation class="contract-creation" />
     </div>
   </main>
@@ -42,7 +42,7 @@ import Welcome from '@/components/Welcome.vue'
   order: 1
 }
 
-.reasoning {
+.quote {
   order: 2
 }
 

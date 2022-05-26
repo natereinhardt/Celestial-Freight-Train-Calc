@@ -10,7 +10,7 @@
 <template>
     <div class="container reasoning-container bg-gray-800 bg-opacity-10">
         <h3>
-            Reasoning
+            Quote
         </h3>
         <div>
             From:
@@ -68,7 +68,5 @@ h3 {
 
 .reasoning-container {
     width: 25em;
-    padding: .5em;
-    margin: .5em;
 }
 </style>

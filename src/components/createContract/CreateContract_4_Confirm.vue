@@ -7,7 +7,7 @@
 // });
 import contractImg from '@/assets/contracts.png'
 import courierContractImg from '@/assets/contractcourier.png'
-import CreateContractHeader from '@/components/CreateContractHeader.vue';
+import CreateContractHeader from '@/components/createContract/CreateContractHeader.vue';
 </script>
 
 <template>

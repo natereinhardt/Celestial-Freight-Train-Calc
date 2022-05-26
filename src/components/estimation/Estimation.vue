@@ -40,8 +40,7 @@ h3 {
 }
 
 .estimation-container {
-    width: 25em;
-    padding: .5em;
-    margin: .5em;
+    width: 40em;
+
 }
 </style>
