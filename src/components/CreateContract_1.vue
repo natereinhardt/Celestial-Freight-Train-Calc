@@ -4,7 +4,7 @@ import CreateContractHeader from '@/components/CreateContractHeader.vue';
 </script>
 
 <template>
-    <div class="inner-container">
+    <div class="container inner-container">
         <CreateContractHeader title='Create
             Contract' :titleImage="contractImg" subHeader='Select Contract Type (1/4)' :subHeaderImage='contractImg' />
         <div class="contract-type">
@@ -68,10 +68,8 @@ import CreateContractHeader from '@/components/CreateContractHeader.vue';
 </template>
 
 <style scoped>
-
 .inner-container {
-    padding: .5em;
-    margin: .5em;
+    margin-top: .5em;
 }
 
 .checkbox-container {

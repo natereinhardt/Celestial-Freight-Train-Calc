@@ -8,12 +8,51 @@
 </script>
 
 <template>
-    <div class="container  bg-gray-800 bg-opacity-10">
-        <h1 class="green"></h1>
+    <div class="container reasoning-container bg-gray-800 bg-opacity-10">
         <h3>
             Reasoning
         </h3>
+        <div>
+            From:
+        </div>
+        <div>
+            To:
+        </div>
+        <div>
+            Volume in Cubic Meters (m^3)
+        </div>
+        <div>
+            Jita Sell Value
+        </div>
+        <div>
+            Inbound (Station To):
+        </div>
+        <div>
+            Collateral
+        </div>
+        <div>
+            Min Reward
+        </div>
+        <div>
+            Max Volume
+        </div>
+        <div>
+            Max Collateral
+        </div>
+        <div>
+            Total Reward
+        </div>
+        <div>
+            Total Collateral
+        </div>
+        <div>
+            Volume Cost
+        </div>
+        <div>
+            Collateral Cost
+        </div>
     </div>
+
 </template>
 
 <style scoped>
@@ -27,7 +66,7 @@ h3 {
     font-size: 1.2rem;
 }
 
-.container {
+.reasoning-container {
     width: 25em;
     padding: .5em;
     margin: .5em;

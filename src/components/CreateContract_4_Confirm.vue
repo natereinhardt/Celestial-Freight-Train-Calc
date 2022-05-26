@@ -11,16 +11,14 @@ import CreateContractHeader from '@/components/CreateContractHeader.vue';
 </script>
 
 <template>
-    <div class="container">
+    <div class="container inner-container">
         <CreateContractHeader title='Create
-            Contract' :titleImage="contractImg" subHeader='Confirm (4/4)'
-            :subHeaderImage='courierContractImg' />
+            Contract' :titleImage="contractImg" subHeader='Confirm (4/4)' :subHeaderImage='courierContractImg' />
     </div>
 </template>
 
 <style scoped>
-
-.container {
-    margin: .5em;
+.inner-container {
+    margin-top: .5em;
 }
 </style>

@@ -15,6 +15,15 @@
         <div>
             Select the outbound and inbound stations
         </div>
+        <div>
+            Outbound (Station From):
+        </div>
+        <div>
+            Inbound (Station To):
+        </div>
+        <div>
+            Package Details
+        </div>
     </div>
 
 </template>
@@ -34,18 +43,5 @@ h3 {
     width: 25em;
     padding: .5em;
     margin: .5em;
-}
-
-.greetings h1,
-.greetings h3 {
-    text-align: center;
-}
-
-@media (min-width: 1024px) {
-
-    .greetings h1,
-    .greetings h3 {
-        text-align: left;
-    }
 }
 </style>

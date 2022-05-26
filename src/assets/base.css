@@ -64,6 +64,7 @@
   border-top: 1px;
   border-color: var(--ccp-modal-top-border-color);
   border-style: solid;
+  padding: .5em;
   margin: .5em;
 }
 
