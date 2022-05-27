@@ -1,19 +1,11 @@
 <script setup>
 import Multiselect from '@vueform/multiselect'
-import { ref } from 'vue'
-const outbound = ref(null)
-const inbound = ref(null)
-const options = ref([
-    'Jita IV - Moon 4 - Caldari Navy Assembly Plant',
-    'W4E-IT - The Troll Empire',
-    'Y19P-1 - TIRE Sector Command Delta',
-])
-// defineProps({
-//     msg: {
-//         type: String,
-//         required: true,
-//     },
-// });
+import { mapState, storeToRefs } from 'pinia'
+import { estimationStore } from '@/stores/estimation'
+// import { ref } from 'vue'
+
+const { outboundStation, inboundStation, items, stations } = storeToRefs(estimationStore())
+
 </script>
 
 <template>
@@ -28,16 +20,20 @@ const options = ref([
         </div>
         <div>
             Outbound (Station From):
-            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="outbound" :options="options" />
+            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="outboundStation" :options="stations" />
         </div>
         <div>
             Inbound (Station To):
-            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="inbound" :options="options" />
+            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="inboundStation" :options="stations" />
         </div>
-        <div>
-            <span>Package Details:</span>
-            <p style="white-space: pre-line;">{{ message }}</p>
-            <textarea v-model="message" placeholder="Tritanium 1000 ..."></textarea>
+        <div class="package-details-container">
+            <div>Package Details:</div>
+            <!-- <p style="white-space: pre-line;">{{ items }}</p> -->
+            <textarea class="package-details" v-model="items" placeholder="Tritanium 1000 ..."></textarea>
+            <button
+                class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                Run Quote
+            </button>
         </div>
     </div>
 
@@ -57,6 +53,15 @@ h3 {
 
 .estimation-container {
     width: 40em;
+}
 
+.package-details-container {
+    width: 30em;
+    height: 20em;
+}
+
+.package-details {
+    width: 30em;
+    height: 20em;
 }
 </style>

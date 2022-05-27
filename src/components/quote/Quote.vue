@@ -1,10 +1,12 @@
 <script setup>
-// defineProps({
-//     msg: {
-//         type: String,
-//         required: true,
-//     },
+import QuoteLineItem from '@/components/quote/QuoteLineItem.vue';
+import { mapState, storeToRefs} from 'pinia'
+import { estimationStore } from '@/stores/estimation'
+
+const { outboundStation, inboundStation } = storeToRefs(estimationStore())
+
 // });
+
 </script>
 
 <template>
@@ -12,12 +14,8 @@
         <h3>
             Quote
         </h3>
-        <div>
-            From:
-        </div>
-        <div>
-            To:
-        </div>
+        <QuoteLineItem label='From:' :value='outboundStation' />
+        <QuoteLineItem label='To:' :value='inboundStation' />
         <div>
             Volume in Cubic Meters (m^3):
         </div>
