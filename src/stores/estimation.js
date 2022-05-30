@@ -5,25 +5,19 @@ export const estimationStore = defineStore('estimationStore',{
     outboundStation: '',
     inboundStation: '',
     items: [],
-    outboundStations: [
+    availableStations: [
         'Jita IV - Moon 4 - Caldari Navy Assembly Plant',
         'W4E-IT - The Troll Empire',
         'Y19P-1 - TIRE Sector Command Delta',
     ],
-    inboundStations: [
-        'Jita IV - Moon 4 - Caldari Navy Assembly Plant',
-        'W4E-IT - The Troll Empire',
-        'Y19P-1 - TIRE Sector Command Delta',
-    ],
-
   }),
   getters: {
-      getStationsNotSelected(state){
-          return (station) => state.stations.map((station) => station !== selectionStaions)
-      }
-    // getPostsPerAuthor: (state) => {
-    //   return (authorId) => state.posts.filter((post) => post.userId === authorId)
-    // }
+      getOutboundStations(state){
+        return () => { return state.availableStations.filter((station) => state.inboundStation !== station)}
+      },
+      getInboundStations(state){
+        return () => { return state.availableStations.filter((station) => state.outboundStation !== station) }
+    }
   },
      actions: {
 //     async fetchPosts() {

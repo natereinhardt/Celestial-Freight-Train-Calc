@@ -3,9 +3,8 @@ import Multiselect from '@vueform/multiselect'
 import { mapState, storeToRefs } from 'pinia'
 import { estimationStore } from '@/stores/estimation'
 // import { ref } from 'vue'
-
 const { outboundStation, inboundStation, items, outboundStations, inboundStations } = storeToRefs(estimationStore())
-
+const { getInboundStations, getOutboundStations } = estimationStore()
 </script>
 
 <template>
@@ -20,11 +19,13 @@ const { outboundStation, inboundStation, items, outboundStations, inboundStation
         </div>
         <div>
             Outbound (Station From):
-            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="outboundStation" :options="outboundStations" />
+            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="outboundStation"
+                :options="getOutboundStations()" />
         </div>
         <div>
             Inbound (Station To):
-            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="inboundStation" :options="inboundStations" />
+            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="inboundStation"
+                :options="getInboundStations()" />
         </div>
         <div class="package-details-container">
             <div>Package Details:</div>
