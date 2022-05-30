@@ -22,6 +22,7 @@ defineProps({
 <style scoped>
 .quote-line-item {
     display: flex;
+    justify-content: space-between;
 }
 
 .label {

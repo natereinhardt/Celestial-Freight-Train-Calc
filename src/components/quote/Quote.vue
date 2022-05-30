@@ -16,39 +16,16 @@ const { outboundStation, inboundStation } = storeToRefs(estimationStore())
         </h3>
         <QuoteLineItem label='From:' :value='outboundStation' />
         <QuoteLineItem label='To:' :value='inboundStation' />
-        <div>
-            Volume in Cubic Meters (m^3):
-        </div>
-        <div>
-            Jita Sell Value:
-        </div>
-        <div>
-            Inbound (Station To):
-        </div>
-        <div>
-            Collateral:
-        </div>
-        <div>
-            Min Reward:
-        </div>
-        <div>
-            Max Volume:
-        </div>
-        <div>
-            Max Collateral:
-        </div>
-        <div>
-            Total Reward:
-        </div>
-        <div>
-            Total Collateral:
-        </div>
-        <div>
-            Volume Cost:
-        </div>
-        <div>
-            Collateral Cost:
-        </div>
+        <QuoteLineItem label='Volume in Cubic Meters (m^3):' value='' />
+        <QuoteLineItem label='Jita Sell Value:' value='' />
+        <QuoteLineItem label='Collateral:' value='' />
+        <QuoteLineItem label='Min Reward:' value='' />
+        <QuoteLineItem label='Max Volume:' value='' />
+        <QuoteLineItem label='Max Collateral:' value='' />
+        <QuoteLineItem label='Total Reward:' value='' />
+        <QuoteLineItem label='Total Collateral:' value='' />
+        <QuoteLineItem label='Volume Cost:' value='' />
+        <QuoteLineItem label='Collateral Cost:' value='' />
     </div>
 
 </template>

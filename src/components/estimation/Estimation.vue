@@ -4,7 +4,7 @@ import { mapState, storeToRefs } from 'pinia'
 import { estimationStore } from '@/stores/estimation'
 // import { ref } from 'vue'
 
-const { outboundStation, inboundStation, items, stations } = storeToRefs(estimationStore())
+const { outboundStation, inboundStation, items, outboundStations, inboundStations } = storeToRefs(estimationStore())
 
 </script>
 
@@ -20,11 +20,11 @@ const { outboundStation, inboundStation, items, stations } = storeToRefs(estimat
         </div>
         <div>
             Outbound (Station From):
-            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="outboundStation" :options="stations" />
+            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="outboundStation" :options="outboundStations" />
         </div>
         <div>
             Inbound (Station To):
-            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="inboundStation" :options="stations" />
+            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="inboundStation" :options="inboundStations" />
         </div>
         <div class="package-details-container">
             <div>Package Details:</div>
