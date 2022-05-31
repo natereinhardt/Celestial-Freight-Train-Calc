@@ -18,8 +18,6 @@ const {
     collateral,
     collateralCost } = storeToRefs(estimationStore())
 
-// });
-
 </script>
 
 <template>
@@ -31,9 +29,9 @@ const {
         <QuoteLineItem label='To:' :value='inboundStation' />
         <QuoteLineItem label='Volume in Cubic Meters (m^3):' :value='volume' />
         <QuoteLineItem label='Jita Sell Value:' :value='jitaSellvalue' />
-        <QuoteLineItem label='Collateral:' :value='jitaSellvalue' />
+        <QuoteLineItem label='Collateral:' :value='collateral' />
         <QuoteLineItem label='Min Reward (ISK):' :value='minReward' />
-        <QuoteLineItem label='Max Volume:' :value='maxVolume' />
+        <QuoteLineItem label='Max Volume (m^3):' :value='maxVolume' />
         <QuoteLineItem label='Max Collateral (ISK):' :value='maxCollateral' />
         <QuoteLineItem label='Total Reward (ISK):' :value='totalReward' />
         <QuoteLineItem label='Total Collateral (ISK):' :value='totalCollateral' />

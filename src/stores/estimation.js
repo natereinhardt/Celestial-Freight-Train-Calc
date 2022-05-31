@@ -33,7 +33,7 @@ export const estimationStore = defineStore('estimationStore',{
         return () => { return this.availableStations.filter((station) => this.outboundStation !== station) }
     }
   },
-     actions: {
+  actions: {
     async fetchPosts() {
       this.posts = []
       this.loading = true
