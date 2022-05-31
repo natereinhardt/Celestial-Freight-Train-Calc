@@ -18,11 +18,11 @@ import CreateContract_4_Confirm from '@/components/createContract/CreateContract
 @import '@/assets/base.css';
 
 .contracts-container {
-    width: 25em;
-    /* margin: .5em; */
+    width: auto;
+    margin: 2em;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .create-contract-1 {

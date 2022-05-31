@@ -13,6 +13,9 @@ import Welcome from '@/components/Welcome.vue'
     <div class="content-wrapper">
       <Estimation class="estimation" />
       <Quote class="quote" />
+
+    </div>
+    <div>
       <ContractCreation class="contract-creation" />
     </div>
   </main>
@@ -35,8 +38,6 @@ import Welcome from '@/components/Welcome.vue'
   flex-direction: row;
   justify-content: space-evenly;
 }
-
-
 
 .estimation {
   order: 1
