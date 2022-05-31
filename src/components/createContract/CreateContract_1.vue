@@ -1,6 +1,9 @@
 <script setup>
 import contractImg from '@/assets/contracts.png'
+import { mapState, storeToRefs } from 'pinia'
 import CreateContractHeader from '@/components/createContract/CreateContractHeader.vue';
+import { createContractStore } from '@/stores/createContract'
+const { loading, error, contractTo } = storeToRefs(createContractStore())
 </script>
 
 <template>
@@ -46,9 +49,17 @@ import CreateContractHeader from '@/components/createContract/CreateContractHead
                         <input id="radio-5" name="radio-5" type="radio" checked>
                         <label for="radio-5" class="radio-label">Private</label>
                     </div>
-                    <div class="name-text">
-                        <label for="name">Name</label>
-                        <input class="bg-gray-800 bg-opacity-10" type="text" id="name" name="name" disabled>
+                    <div class="contractTo-container">
+                        <label class="contractTo-label" for="name">Name</label>
+                        <div class="contractTo-text" type="text" id="name" name="name">
+                            {{ contractTo }}</div>
+                    </div>
+                    <div class="contractTo-container">
+                        <label class="contractTo-label" for="name">Search By</label>
+                        <div class="searchBy-text" type="text" id="name" name="name">
+                            Exact Terms 
+                            <font-awesome-icon :icon="['fas', 'caret-down']" />
+                            </div>
                     </div>
                     <div class="radio">
                         <input id="radio-6" name="radio-6" type="radio" disabled>
@@ -76,19 +87,31 @@ import CreateContractHeader from '@/components/createContract/CreateContractHead
     margin-left: 2em;
 }
 
-.name-text {
-    margin-left: 2em;
+.contractTo-container {
+    display: flex;
+    margin: .5em;
+
 }
 
-.name-text input {
+.contractTo-label {
+    align-self: center;
+}
+
+.contractTo-text {
+    align-self: center;
     margin-left: 1em;
+    padding: .5em;
     border: 1px solid grey;
     height: 2.5em;
 
 }
-
-input[type=text]:focus {
+.searchBy-text {
+    align-self: center;
+    margin-left: 1em;
+    padding: .5em;
     border: 1px solid grey;
+    height: 2.5em;
+    border-bottom-right-radius: .75em;
 }
 
 .checkbox-container input {
@@ -144,6 +167,7 @@ input[type=text]:focus {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
 /* 
 .contract-type {}
 
