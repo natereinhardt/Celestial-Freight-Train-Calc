@@ -1,6 +1,6 @@
 <script setup>
 import contractImg from '@/assets/contracts.png'
-import contractitemexchange from '@/assets/contractitemexchange.png'
+import contractCourier from '@/assets/contractcourier.png'
 import CreateContractHeader from '@/components/createContract/CreateContractHeader.vue';
 import { mapState, storeToRefs } from 'pinia'
 import { estimationStore } from '@/stores/estimation'
@@ -15,7 +15,7 @@ const {
 <template>
     <div class="container inner-container">
         <CreateContractHeader title='Create
-            Contract' :titleImage="contractImg" subHeader='Pick Items (2/4)' :subHeaderImage='contractitemexchange' />
+            Contract' :titleImage="contractImg" subHeader='Pick Items (2/4)' :subHeaderImage='contractCourier' />
         <div class="availability">
             <div class="flex justify-left">
                 <div>
