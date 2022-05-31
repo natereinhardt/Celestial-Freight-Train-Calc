@@ -12,6 +12,18 @@ export const estimationStore = defineStore('estimationStore',{
         'W4E-IT - The Troll Empire',
         'Y19P-1 - TIRE Sector Command Delta',
     ],
+    jitaSellvalue: 0,
+    minReward: 25000000,
+    totalReward: 0,
+    maxVolume: 300000,
+    volume: 0,
+    volumeMarkup: 1000,
+    volumeCost: 0,
+    maxCollateral: 0,
+    totalCollateral: 0,
+    collateral: 0,
+    collateralCost: 0
+
   }),
   getters: {
       getOutboundStations(state){

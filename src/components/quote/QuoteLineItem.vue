@@ -5,7 +5,6 @@ defineProps({
         required: true,
     },
     value: {
-        type: String,
         required: true,
     }
 });
@@ -15,7 +14,7 @@ defineProps({
 <template>
     <div class="quote-line-item">
         <div class="label">{{ label }}</div>
-        <div class="value">{{ value }}</div>
+        <div class="value">{{ value.toLocaleString() }}</div>
     </div>
 </template>
 
@@ -23,6 +22,7 @@ defineProps({
 .quote-line-item {
     display: flex;
     justify-content: space-between;
+    padding: .2em
 }
 
 .label {

@@ -1,9 +1,22 @@
 <script setup>
 import QuoteLineItem from '@/components/quote/QuoteLineItem.vue';
-import { mapState, storeToRefs} from 'pinia'
+import { mapState, storeToRefs } from 'pinia'
 import { estimationStore } from '@/stores/estimation'
 
-const { outboundStation, inboundStation } = storeToRefs(estimationStore())
+const { 
+    outboundStation,
+    inboundStation,
+    jitaSellvalue,
+    totalReward,
+    minReward,
+    maxVolume,
+    volume,
+    volumeMarkup,
+    volumeCost,
+    maxCollateral,
+    totalCollateral,
+    collateral,
+    collateralCost } = storeToRefs(estimationStore())
 
 // });
 
@@ -16,16 +29,16 @@ const { outboundStation, inboundStation } = storeToRefs(estimationStore())
         </h3>
         <QuoteLineItem label='From:' :value='outboundStation' />
         <QuoteLineItem label='To:' :value='inboundStation' />
-        <QuoteLineItem label='Volume in Cubic Meters (m^3):' value='' />
-        <QuoteLineItem label='Jita Sell Value:' value='' />
-        <QuoteLineItem label='Collateral:' value='' />
-        <QuoteLineItem label='Min Reward:' value='' />
-        <QuoteLineItem label='Max Volume:' value='' />
-        <QuoteLineItem label='Max Collateral:' value='' />
-        <QuoteLineItem label='Total Reward:' value='' />
-        <QuoteLineItem label='Total Collateral:' value='' />
-        <QuoteLineItem label='Volume Cost:' value='' />
-        <QuoteLineItem label='Collateral Cost:' value='' />
+        <QuoteLineItem label='Volume in Cubic Meters (m^3):' :value='volume' />
+        <QuoteLineItem label='Jita Sell Value:' :value='jitaSellvalue' />
+        <QuoteLineItem label='Collateral:' :value='jitaSellvalue' />
+        <QuoteLineItem label='Min Reward (ISK):' :value='minReward' />
+        <QuoteLineItem label='Max Volume:' :value='maxVolume' />
+        <QuoteLineItem label='Max Collateral (ISK):' :value='maxCollateral' />
+        <QuoteLineItem label='Total Reward (ISK):' :value='totalReward' />
+        <QuoteLineItem label='Total Collateral (ISK):' :value='totalCollateral' />
+        <QuoteLineItem label='Volume Cost (ISK):' :value='volumeCost' />
+        <QuoteLineItem label='Collateral Cost (ISK):' :value='collateralCost' />
     </div>
 
 </template>
