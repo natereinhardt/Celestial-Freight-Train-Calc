@@ -14,6 +14,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "@vueform/multiselect": "^2.3.4",
+    "dotenv-webpack": "^7.1.0",
     "pinia": "^2.0.13",
     "vue": "^3.2.33",
     "vue-demi": "latest",

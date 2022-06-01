@@ -17,7 +17,7 @@ const {
         <CreateContractHeader title='Create
             Contract' :titleImage="contractImg" subHeader='Pick Items (2/4)' :subHeaderImage='contractCourier' />
         <div class="availability">
-            <div class="flex justify-left">
+            <div>
                 <div>
                     <div class="contractTo-container">
                         <div class="outboundStation-text" type="text" id="name" name="name">

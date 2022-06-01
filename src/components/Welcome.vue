@@ -1,10 +1,4 @@
 <script setup>
-// defineProps({
-//     msg: {
-//         type: String,
-//         required: true,
-//     },
-// });
 </script>
 
 <template>
@@ -13,7 +7,8 @@
             Celestial Freight Train - A Celestial Empire Corporation
         </h3>
         <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non lobortis arcu. Praesent ultrices cursus sapien non vestibulum. Morbi at nunc non ipsum egestas ultricies ac eget elit. Curabitur eu nisl a ante accumsan aliquet non vel neque. Nullam vitae justo pretium, tincidunt sem et, condimentum arcu. Vestibulum auctor ante felis, ac iaculis ligula efficitur a. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ullamcorper nisl sem, sit amet convallis nulla fermentum sed. Vivamus tempus, nunc id varius egestas, urna risus ornare dolor, vitae molestie diam leo quis tortor. Etiam at posuere ex. Suspendisse hendrerit enim at augue tempus rhoncus. Donec condimentum diam nec enim consectetur, non ultrices leo facilisis. Proin consectetur, ante eget volutpat pulvinar, nulla dolor suscipit nisi, fermentum pharetra magna dui quis dolor. In hendrerit tortor est, a scelerisque purus posuere sed. Nunc faucibus diam quis ante sagittis gravida.
+            Please make all contracts to <a href="https://evemaps.dotlan.net/corp/Celestial%20Freight%20Train" target="_blank">Celestial Freight Train</a>. Select your outbound (station we are picking up from) and your inbound (station we are shipping to) from the available stations. 
+            Copy and paste the items you want delievered into the "Package Details" text-area below. Click "Run Qoute" to get a delivery quote. From there you can look at the mocked contract creation screens to streamline the ingame process.
         </div>
     </div>
 

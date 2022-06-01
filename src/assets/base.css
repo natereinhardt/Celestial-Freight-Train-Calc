@@ -21,6 +21,7 @@
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 
   --ccp-modal-top-border-color: rgb(8 145 178);
+  --ccp-modal-top-border-color-hover: rgb(10, 179, 221);
   --ccp-container-background-color: rgb(31 41 55);
   --ccp-hover-color: hsla(160, 100%, 37%, 0.2);
 

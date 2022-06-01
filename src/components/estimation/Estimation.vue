@@ -3,9 +3,9 @@ import Multiselect from '@vueform/multiselect'
 import { mapState, storeToRefs } from 'pinia'
 import { estimationStore } from '@/stores/estimation'
 // import { ref } from 'vue'
-const { loading, error, outboundStation, inboundStation, items, outboundStations, inboundStations } = storeToRefs(estimationStore())
+const { loading, error, outboundStation, inboundStation, quoteItems, outboundStations, inboundStations } = storeToRefs(estimationStore())
 
-const { getInboundStations, getOutboundStations } = estimationStore()
+const { getInboundStations, getOutboundStations, getEstimation } = estimationStore()
 </script>
 
 <template>
@@ -20,20 +20,17 @@ const { getInboundStations, getOutboundStations } = estimationStore()
         </div>
         <div>
             Outbound (Station From):
-            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="outboundStation"
-                :options="getOutboundStations()" />
+            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="outboundStation" :options="getOutboundStations()" />
         </div>
         <div>
             Inbound (Station To):
-            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="inboundStation"
-                :options="getInboundStations()" />
+            <Multiselect class="bg-gray-800 bg-opacity-10" v-model="inboundStation" :options="getInboundStations()" />
         </div>
         <div class="package-details-container">
             <div>Package Details:</div>
-            <!-- <p style="white-space: pre-line;">{{ items }}</p> -->
-            <textarea class="package-details" v-model="items" placeholder="Tritanium 1000 ..."></textarea>
-            <button
-                class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+            <textarea class="package-details" v-model="quoteItems" placeholder="Tritanium 1000 ..."></textarea>
+            <button class="quote-button text-white font-bold py-2 px-4 border-b-4" @click="getEstimation()"
+                :disabled="inboundStation === '' || outboundStation === '' || quoteItems === ''">
                 Run Quote
             </button>
         </div>
@@ -60,13 +57,33 @@ h3 {
 .package-details-container {
     width: 30em;
 }
+
 .package-details-container:text-area {
     resize: vertical;
     overflow: auto;
 }
+
 .package-details {
+    color: black;
     width: 30em;
     height: 20em;
+    padding: .5em;
 
+}
+
+.quote-button {
+    background-color: var(--ccp-modal-top-border-color);
+    border-color: var(--ccp-modal-top-border-color);
+}
+
+.quote-button:hover {
+    /* background-color: var(--ccp-modal-top-border-color-hover); */
+    border-color: var(--ccp-modal-top-border-color-hover);
+}
+
+.quote-button:disabled {
+    /* background-color: var(--ccp-modal-top-border-color-hover); */
+    background-color: grey;
+    border-color: grey;
 }
 </style>
