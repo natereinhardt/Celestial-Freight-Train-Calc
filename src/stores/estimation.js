@@ -6,7 +6,7 @@ export const estimationStore = defineStore('estimationStore', {
     error: null,
     outboundStation: '',
     inboundStation: '',
-    quoteItems: null,
+    quoteItems: '',
     items: [],
     availableStations: [
       'Jita IV - Moon 4 - Caldari Navy Assembly Plant',

@@ -27,20 +27,23 @@ const { getTotalReward, getTotalCollateral, getVolumeCost, getCollateralCost } =
         <h3>
             Quote
         </h3>
+        <div class="border-t my-2">Limits</div>
+        <QuoteLineItem label='Min Reward:' :value='minReward' subLabel="ISK" />
+        <QuoteLineItem label='Max Volume:' :value='maxVolume' subLabel="m^3" />
+        <QuoteLineItem label='Max Collateral:' :value='maxCollateral' subLabel="ISK" />
+
+        <div class="border-t my-2">Package Info</div>
         <QuoteLineItem label='From:' :value='outboundStation' />
         <QuoteLineItem label='To:' :value='inboundStation' />
         <QuoteLineItem label='Volume in Cubic Meters:' :value='volume' subLabel="m^3" />
         <QuoteLineItem label='Jita Buy Value:' :value='jitaBuyvalue' subLabel="ISK" />
         <QuoteLineItem label='Collateral:' :value='collateral' subLabel="ISK" />
-        <div class="border-t my-2">Limits</div>
-        <QuoteLineItem label='Min Reward:' :value='minReward' subLabel="ISK" />
-        <QuoteLineItem label='Max Volume:' :value='maxVolume' subLabel="m^3" />
-        <QuoteLineItem label='Max Collateral:' :value='maxCollateral' subLabel="ISK" />
+
         <div class="border-t my-2">Totals</div>
-        <QuoteLineItem label='Total Reward:' :value='getTotalReward()' subLabel="ISK" />
         <QuoteLineItem label='Total Collateral:' :value='jitaBuyvalue' subLabel="ISK" />
         <QuoteLineItem label='Volume Cost:' :value='getVolumeCost()' subLabel="ISK" />
         <QuoteLineItem label='Collateral Cost:' :value='getCollateralCost()' subLabel="ISK" />
+        <QuoteLineItem label='Total Reward:' :value='getTotalReward()' subLabel="ISK" />
     </div>
 
 </template>

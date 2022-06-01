@@ -28,9 +28,9 @@ const { getInboundStations, getOutboundStations, getEstimation } = estimationSto
         </div>
         <div class="package-details-container">
             <div>Package Details:</div>
-            <!-- <p style="white-space: pre-line;">{{ items }}</p> -->
             <textarea class="package-details" v-model="quoteItems" placeholder="Tritanium 1000 ..."></textarea>
-            <button class="quote-button text-white font-bold py-2 px-4 border-b-4" @click="getEstimation()">
+            <button class="quote-button text-white font-bold py-2 px-4 border-b-4" @click="getEstimation()"
+                :disabled="inboundStation === '' || outboundStation === '' || quoteItems === ''">
                 Run Quote
             </button>
         </div>
@@ -79,5 +79,11 @@ h3 {
 .quote-button:hover {
     /* background-color: var(--ccp-modal-top-border-color-hover); */
     border-color: var(--ccp-modal-top-border-color-hover);
+}
+
+.quote-button:disabled {
+    /* background-color: var(--ccp-modal-top-border-color-hover); */
+    background-color: grey;
+    border-color: grey;
 }
 </style>
