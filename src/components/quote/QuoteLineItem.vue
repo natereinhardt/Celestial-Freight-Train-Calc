@@ -6,6 +6,10 @@ defineProps({
     },
     value: {
         required: true,
+    },
+    subLabel: {
+        required: false,
+        type: String,
     }
 });
 
@@ -14,7 +18,7 @@ defineProps({
 <template>
     <div class="quote-line-item">
         <div class="label">{{ label }}</div>
-        <div class="value">{{ value.toLocaleString() }}</div>
+        <div class="value">{{ value.toLocaleString() }} {{ subLabel }}</div>
     </div>
 </template>
 
@@ -30,6 +34,8 @@ defineProps({
 }
 
 .value {
+    flex-shrink: 5;
+    align-self: flex-end;
     order: 2;
 }
 </style>

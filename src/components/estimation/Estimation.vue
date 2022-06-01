@@ -3,7 +3,7 @@ import Multiselect from '@vueform/multiselect'
 import { mapState, storeToRefs } from 'pinia'
 import { estimationStore } from '@/stores/estimation'
 // import { ref } from 'vue'
-const { loading, error, outboundStation, inboundStation, items, outboundStations, inboundStations } = storeToRefs(estimationStore())
+const { loading, error, outboundStation, inboundStation, quoteItems, outboundStations, inboundStations } = storeToRefs(estimationStore())
 
 const { getInboundStations, getOutboundStations, getEstimation } = estimationStore()
 </script>
@@ -29,7 +29,7 @@ const { getInboundStations, getOutboundStations, getEstimation } = estimationSto
         <div class="package-details-container">
             <div>Package Details:</div>
             <!-- <p style="white-space: pre-line;">{{ items }}</p> -->
-            <textarea class="package-details" v-model="items" placeholder="Tritanium 1000 ..."></textarea>
+            <textarea class="package-details" v-model="quoteItems" placeholder="Tritanium 1000 ..."></textarea>
             <button class="quote-button text-white font-bold py-2 px-4 border-b-4" @click="getEstimation()">
                 Run Quote
             </button>
