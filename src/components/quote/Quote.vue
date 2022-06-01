@@ -53,6 +53,6 @@ h3 {
 }
 
 .reasoning-container {
-    width: 25em;
+    width: 35em;
 }
 </style>

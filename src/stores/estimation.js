@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 
-export const estimationStore = defineStore('estimationStore',{
+export const estimationStore = defineStore('estimationStore', {
   state: () => ({
     loading: false,
     error: null,
@@ -8,9 +8,9 @@ export const estimationStore = defineStore('estimationStore',{
     inboundStation: '',
     items: [],
     availableStations: [
-        'Jita IV - Moon 4 - Caldari Navy Assembly Plant',
-        'W4E-IT - The Troll Empire',
-        'Y19P-1 - TIRE Sector Command Delta',
+      'Jita IV - Moon 4 - Caldari Navy Assembly Plant',
+      'W4E-IT - The Troll Empire',
+      'Y19P-1 - TIRE Sector Command Delta',
     ],
     jitaSellvalue: 0,
     minReward: 25000000,
@@ -22,41 +22,65 @@ export const estimationStore = defineStore('estimationStore',{
     maxCollateral: 0,
     totalCollateral: 0,
     collateral: 0,
-    collateralCost: 0
-
+    collateralCost: 0,
+    estimation: null,
+    janiceCode: null,
   }),
   getters: {
-      getOutboundStations(state){
-        return () => { return this.availableStations.filter((station) => this.inboundStation !== station)}
-      },
-      getInboundStations(state){
-        return () => { return this.availableStations.filter((station) => this.outboundStation !== station) }
-    }
+    getOutboundStations(state) {
+      return () => {
+        return this.availableStations.filter(
+          (station) => this.inboundStation !== station
+        );
+      };
+    },
+    getInboundStations(state) {
+      return () => {
+        return this.availableStations.filter(
+          (station) => this.outboundStation !== station
+        );
+      };
+    },
   },
+
+  //   ApiKey (apiKey)
+  // Authorized
+  // Contact kukki#3914 on discord to request an api key.
+
+  // Name: X-ApiKey
+
+  // In: header
+
+  // Value: ******
   actions: {
-    async fetchPosts() {
-      this.posts = []
-      this.loading = true
+    async getEstimation() {
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain',
+          'Accept': 'application/json',
+        },
+        body: this.items,
+      };
+      console.log(requestOptions)
+      this.estimation = null;
+      this.loading = true;
       try {
-        this.posts = await fetch('https://jsonplaceholder.typicode.com/posts')
-        .then((response) => response.json()) 
+        console.log('FUCK');
+        const response = await fetch(
+          'https://janice.e-351.com/api/rest/v1/appraisal?key=BaSjUOMtnjzOyMllN92rJvUWgWdt8CRj&market=2&designation=appraisal&pricing=sell&persist=true&compactize=true&pricePercentage=1',
+          requestOptions
+        );
+        const { totalBuyPrice, code, totalVolume } = await response.json()
+        this.volume = totalVolume;
+        this.janiceCode = code;
+        console.log(totalBuyPrice);
       } catch (error) {
-        this.error = error
+        console.log(error);
+        this.error = error;
       } finally {
-        this.loading = false
+        this.loading = false;
       }
     },
-    async fetchPost(id) {
-        this.post = null
-        this.loading = true
-        try {
-          this.post = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-          .then((response) => response.json())
-        } catch (error) {
-          this.error = error
-        } finally {
-          this.loading = false
-        }
-      }
-    } 
+  },
 });

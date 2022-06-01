@@ -27,40 +27,40 @@ const {
             Contract' :titleImage="contractImg" subHeader='Select Options (3/4)'
             :subHeaderImage='courierContractImg' />
         <div class="availability">
-            <div class="flex justify-left">
+            <div>
                 <div>
-                    <div class="contractTo-container">
-                        <label class="contractTo-label" for="name">Ship To</label>
-                        <div class="contractTo-text" type="text" id="name" name="name">
+                    <div class="quote-line-item">
+                        <label class="label" for="name">Ship To</label>
+                        <div class="value" type="text" id="name" name="name">
                             {{ inboundStation }}</div>
                     </div>
-                    <div class="contractTo-container">
-                        <label class="contractTo-label" for="name">Reward</label>
-                        <div class="searchBy-text" type="text" id="name" name="name">
+                    <div class="quote-line-item">
+                        <label class="label" for="name">Reward</label>
+                        <div class="value" type="text" id="name" name="name">
                             {{ totalReward.toLocaleString() }}
                         </div>
                     </div>
-                    <div class="contractTo-container">
-                        <label class="contractTo-label" for="name">Collateral</label>
-                        <div class="searchBy-text" type="text" id="name" name="name">
+                    <div class="quote-line-item">
+                        <label class="label" for="name">Collateral</label>
+                        <div class="value" type="text" id="name" name="name">
                             {{ collateral.toLocaleString() }}
                         </div>
                     </div>
-                    <div class="contractTo-container">
-                        <label class="contractTo-label" for="name">Expiration</label>
-                        <div class="searchBy-text" type="text" id="name" name="name">
+                    <div class="quote-line-item">
+                        <label class="label" for="name">Expiration</label>
+                        <div class="value" type="text" id="name" name="name">
                             1 Week
                         </div>
                     </div>
-                    <div class="contractTo-container">
-                        <label class="contractTo-label" for="name">Days to Complete</label>
-                        <div class="searchBy-text" type="text" id="name" name="name">
+                    <div class="quote-line-item">
+                        <label class="label" for="name">Days to Complete</label>
+                        <div class="value" type="text" id="name" name="name">
                             10
                         </div>
                     </div>
-                    <div class="contractTo-container">
-                        <label class="contractTo-label" for="name">Description</label>
-                        <div class="searchBy-text" type="text" id="name" name="name">
+                    <div class="quote-line-item">
+                        <label class="label" for="name">Description</label>
+                        <div class="value" type="text" id="name" name="name">
                             Yo Mamma
                         </div>
                     </div>
@@ -73,5 +73,20 @@ const {
 <style scoped>
 .inner-container {
     margin-top: .5em;
+}
+
+
+.quote-line-item {
+    display: flex;
+    justify-content: space-between;
+    padding: .2em
+}
+
+.label {
+    order: 1;
+}
+
+.value {
+    order: 2;
 }
 </style>
