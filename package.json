@@ -18,6 +18,8 @@
     "pinia": "^2.0.13",
     "vue": "^3.2.33",
     "vue-demi": "latest",
+    "vue-google-oauth2": "^1.5.8",
+    "vue-gsheets": "^4.0.3",
     "vue-router": "^4.0.14"
   },
   "devDependencies": {

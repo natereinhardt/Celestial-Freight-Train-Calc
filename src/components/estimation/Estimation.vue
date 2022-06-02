@@ -1,22 +1,19 @@
-<script setup>
+<script async setup>
 import Multiselect from '@vueform/multiselect'
 import { mapState, storeToRefs } from 'pinia'
 import { estimationStore } from '@/stores/estimation'
-// import { ref } from 'vue'
 const { loading, error, outboundStation, inboundStation, quoteItems, outboundStations, inboundStations } = storeToRefs(estimationStore())
+const { getInboundStations, getOutboundStations, getEstimation} = estimationStore()
 
-const { getInboundStations, getOutboundStations, getEstimation } = estimationStore()
 </script>
 
 <template>
     <div class="container estimation-container  bg-gray-800 bg-opacity-10">
         <h3>
             Estimation
-
         </h3>
         <div>
             Select the outbound and inbound stations
-
         </div>
         <div>
             Outbound (Station From):

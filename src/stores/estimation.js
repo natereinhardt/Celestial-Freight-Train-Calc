@@ -1,18 +1,15 @@
 import { defineStore } from 'pinia';
-
+import { getStations, getStaticData } from '@/services/googleSheetsService';
 export const estimationStore = defineStore('estimationStore', {
   state: () => ({
     loading: false,
     error: null,
+    staticData: null,
     outboundStation: '',
     inboundStation: '',
     quoteItems: '',
     items: [],
-    availableStations: [
-      'Jita IV - Moon 4 - Caldari Navy Assembly Plant',
-      'W4E-IT - The Troll Empire',
-      'Y19P-1 - TIRE Sector Command Delta',
-    ],
+    availableStations: null,
     jitaBuyvalue: 0,
     minReward: 25000000,
     totalReward: 0,
@@ -31,22 +28,28 @@ export const estimationStore = defineStore('estimationStore', {
   getters: {
     getOutboundStations(state) {
       return () => {
-        return this.availableStations.filter(
-          (station) => this.inboundStation !== station
-        );
+        return this.availableStations
+          .filter((station) => this.inboundStation !== station.name)
+          .map((station) => {
+            return station.name;
+          });
       };
     },
     getInboundStations(state) {
       return () => {
-        return this.availableStations.filter(
-          (station) => this.outboundStation !== station
-        );
+        return this.availableStations
+          .filter((station) => this.outboundStation !== station.name)
+          .map((station) => {
+            return station.name;
+          });
       };
     },
     getTotalReward(state) {
       return () => {
         return (this.totalReward =
-          this.volumeMarkup * this.volume + this.minReward + this.collateralCost);
+          this.volumeMarkup * this.volume +
+          this.minReward +
+          this.collateralCost);
       };
     },
     getVolumeCost(state) {
@@ -61,9 +64,64 @@ export const estimationStore = defineStore('estimationStore', {
       };
     },
     getTotalCollateral(state) {
+      const collateralCostPercentage = this.getCollateralCostPercentage()
       return () => {
         return (this.totalCollateral =
-          this.collateralCostPercentage * this.jitaBuyvalue);
+          collateralCostPercentage * this.jitaBuyvalue);
+      };
+    },
+    getMinReward(state) {
+      return () => {
+        let minReward = 2500000
+        this.staticData.forEach((data) => {
+          if (data.key === 'minReward') {
+            minReward = parseFloat(data.value);
+          }
+        });
+        return minReward
+      };
+    },
+    getMaxVolume(state) {
+      return () => {
+        let maxVolume = 300000
+        this.staticData.forEach((data) => {
+          if (data.key === 'maxVolume') {
+            maxVolume = parseFloat(data.value);
+          }
+        });
+        return maxVolume
+      };
+    },
+    getMaxCollateral(state) {
+      return () => {
+        let maxCollateral = 4000000000
+        this.staticData.forEach((data) => {
+          if (data.key === 'maxCollateral') {
+            maxCollateral = parseFloat(data.value);
+          }
+        });
+        return maxCollateral
+      };
+    },
+    getCollateralCostPercentage(state) {
+      return () => {
+        let collateralCostPercentage = 0.01
+        this.staticData.forEach((data) => {
+          if (data.key === 'collateralCostPercentage') {
+            collateralCostPercentage = parseFloat(data.value);
+          }
+        });
+        return collateralCostPercentage
+      };
+    },
+    setStaticData(state) {
+      return async () => {
+        return (this.staticData = await getStaticData());
+      };
+    },
+    setStations(state) {
+      return async () => {
+        return (this.availableStations = await getStations());
       };
     },
   },
@@ -82,7 +140,6 @@ export const estimationStore = defineStore('estimationStore', {
       this.estimation = null;
       this.loading = true;
       try {
-        console.log('FUCK');
         const response = await fetch(
           'https://janice.e-351.com/api/rest/v1/appraisal?key=BaSjUOMtnjzOyMllN92rJvUWgWdt8CRj&market=2&designation=appraisal&pricing=sell&persist=true&compactize=true&pricePercentage=1',
           requestOptions

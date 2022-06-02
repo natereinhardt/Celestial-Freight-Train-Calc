@@ -18,7 +18,7 @@ const {
     collateral,
     collateralCost } = storeToRefs(estimationStore())
 
-const { getTotalReward, getTotalCollateral, getVolumeCost, getCollateralCost } = estimationStore()
+const { getTotalReward, getTotalCollateral, getVolumeCost, getCollateralCost, getMinReward, getMaxVolume, getMaxCollateral } = estimationStore()
 
 </script>
 
@@ -28,9 +28,9 @@ const { getTotalReward, getTotalCollateral, getVolumeCost, getCollateralCost } =
             Quote
         </h3>
         <div class="border-t my-2">Limits</div>
-        <QuoteLineItem label='Min Reward:' :value='minReward' subLabel="ISK" />
-        <QuoteLineItem label='Max Volume:' :value='maxVolume' subLabel="m^3" />
-        <QuoteLineItem label='Max Collateral:' :value='maxCollateral' subLabel="ISK" />
+        <QuoteLineItem label='Min Reward:' :value='getMinReward()' subLabel="ISK" />
+        <QuoteLineItem label='Max Volume:' :value='getMaxVolume()' subLabel="m^3" />
+        <QuoteLineItem label='Max Collateral:' :value='getMaxCollateral()' subLabel="ISK" />
 
         <div class="border-t my-2">Package Info</div>
         <QuoteLineItem label='From:' :value='outboundStation' />

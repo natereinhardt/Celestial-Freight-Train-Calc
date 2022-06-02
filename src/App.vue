@@ -1,23 +1,29 @@
-<script setup>
+<script async setup>
 import TitleBar from '@/components/TitleBar.vue';
 import FooterBar from '@/components/FooterBar.vue';
 import { RouterView } from 'vue-router';
-
 </script>
-
 <template>
-  <div class="page-wrapper">
-    <div class="top-nav">
-      <TitleBar />
-    </div>
-    <div class=content-wrapper>
-      <RouterView />
-    </div>
-    <div class="footer">
-      <FooterBar />
-    </div>
-  </div>
+  <Suspense>
+    <template #default>
+      <div class="page-wrapper">
+        <div class="top-nav">
+          <TitleBar />
+        </div>
+        <div class=content-wrapper>
+          <RouterView />
+        </div>
+        <div class="footer">
+          <FooterBar />
+        </div>
+      </div>
+    </template>
+    <template #fallback>
+      <span>Loading...</span>
+    </template>
+  </Suspense>
 </template>
+
 
 <style scoped>
 @import '@/assets/base.css';
