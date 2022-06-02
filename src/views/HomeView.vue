@@ -3,29 +3,36 @@ import Quote from '@/components/quote/Quote.vue';
 import Estimation from '@/components/estimation/Estimation.vue';
 import ContractCreation from '@/components/createContract/ContractCreation.vue';
 import Welcome from '@/components/Welcome.vue'
-</script>
 
+import { estimationStore } from '@/stores/estimation'
+const { setStations, setStaticData } = estimationStore()
+
+await setStations()
+await setStaticData()
+</script>
 <template>
   <Suspense>
-    <main class="wrapper">
-      <div class="welcome-wrapper">
-        <Welcome />
-      </div>
-      <div class="content-wrapper">
-        <Estimation class="estimation" />
-        <Quote class="quote" />
+    <template #default>
+      <main class="wrapper">
+        <div class="welcome-wrapper">
+          <Welcome />
+        </div>
+        <div class="content-wrapper">
+          <Estimation class="estimation" />
+          <Quote class="quote" />
 
-      </div>
-      <div>
-        <ContractCreation class="contract-creation" />
-      </div>
-    </main>
+        </div>
+        <div>
+          <ContractCreation class="contract-creation" />
+        </div>
+      </main>
+    </template>
     <template #fallback>
       <span>Loading...</span>
     </template>
   </Suspense>
 </template>
-<style>
+  <style>
 @import '@/assets/base.css';
 
 .wrapper {

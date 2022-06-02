@@ -1,42 +1,54 @@
-'use strict'; // https://docs.google.com/spreadsheets/d/1mPT3gvByzQBe6uF8LFcMa0GfDMUVRYFAPC99gdt2WgM/edit?usp=sharing
-//AIzaSyC6tp0HB8Cmy4xi8VVRf1AqRsSSaFbkurU
-// import creds from '@/conf/ceca-freight-dacadcb743a5.json'; // the file saved above
-// const doc = new GoogleSpreadsheet('1mPT3gvByzQBe6uF8LFcMa0GfDMUVRYFAPC99gdt2WgM');
-// import { vueGsheets } from 'vue-gsheets'
-// import sheets from '@googleapis/sheets';
-//const {google} = require('googleapis');
-// Initialize the sheet - doc ID is the long id in the sheets URL
+'use strict'; 
 
-// Initialize Auth - see https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
+const sheetId = '18eSOZxxeYb5GPDpBSC37VbSiH40DMXoFHTuOl6Eo_Kg';
+const accountKey = 'AIzaSyDoM0R5SS5Hb213c6cjeYMRDxFCv1o0kys';
+
 export const getStations = async () => {
+    let availableStations = []
   try {
-    const sheetId = '18eSOZxxeYb5GPDpBSC37VbSiH40DMXoFHTuOl6Eo_Kg';
     const tabName = 'Available-Stations';
-    const accountKey = 'AIzaSyDoM0R5SS5Hb213c6cjeYMRDxFCv1o0kys';
-    const url =
-      'https://sheets.googleapis.com/v4/spreadsheets/' +
-      sheetId +
-      '/values/' +
-      tabName +
-      '?key=' +
-      accountKey;
-    console.log(url);
-    const response = await fetch(url);
-    const sheetData = await response.json();
-    const availableStations = await buildObject(sheetData)
+    availableStations = await getSheetData(sheetId, tabName)
     return availableStations;
   } catch (error) {
     console.log(error);
   } finally {
-    console.log('finally');
+    console.log('Finished getting Available Stations from Google Sheet', availableStations);
   }
 };
 
-const GoogleSheetsService = {
-  getStations,
+export const getStaticData = async () => {
+    let staticData = []
+  try {
+    const tabName = 'Static-Values';
+    staticData = await getSheetData(sheetId, tabName)
+    return staticData;
+  } catch (error) {
+    console.log(error);
+  } finally {
+    console.log('Finished getting Static-Values from Google Sheet', staticData);
+  }
 };
 
-
+const getSheetData = async (id, tabName) =>{
+    let sheetDataAsJson = []
+    try {
+        const url =
+          'https://sheets.googleapis.com/v4/spreadsheets/' +
+          id +
+          '/values/' +
+          tabName +
+          '?key=' +
+          accountKey;
+        const response = await fetch(url);
+        const sheetData = await response.json();
+        sheetDataAsJson = await buildObject(sheetData)
+        return sheetDataAsJson;
+      } catch (error) {
+        console.log(error);
+      } finally {
+        console.log('Finished getting Available-Stations from Google Sheet', sheetDataAsJson);
+      }
+}
 const buildObject = async (sheetData) => {
   let rows = [];
   const sheetValues = sheetData.values
@@ -50,5 +62,10 @@ const buildObject = async (sheetData) => {
   rows.shift()
   return rows
 };
+
+const GoogleSheetsService = {
+    getStations,
+    getStaticData,
+  };
 
 export default GoogleSheetsService;

@@ -1,14 +1,15 @@
 import { defineStore } from 'pinia';
-import { getStations } from '@/services/googleSheetsService';
+import { getStations, getStaticData } from '@/services/googleSheetsService';
 export const estimationStore = defineStore('estimationStore', {
   state: () => ({
     loading: false,
     error: null,
+    staticData: null,
     outboundStation: '',
     inboundStation: '',
     quoteItems: '',
     items: [],
-    availableStations: [],
+    availableStations: null,
     jitaBuyvalue: 0,
     minReward: 25000000,
     totalReward: 0,
@@ -68,6 +69,11 @@ export const estimationStore = defineStore('estimationStore', {
           this.collateralCostPercentage * this.jitaBuyvalue);
       };
     },
+    setStaticData(state) {
+      return async () => {
+        return (this.staticData = await getStaticData());
+      };
+    },
     setStations(state) {
       return async () => {
         return (this.availableStations = await getStations());
@@ -89,7 +95,6 @@ export const estimationStore = defineStore('estimationStore', {
       this.estimation = null;
       this.loading = true;
       try {
-        console.log('FUCK');
         const response = await fetch(
           'https://janice.e-351.com/api/rest/v1/appraisal?key=BaSjUOMtnjzOyMllN92rJvUWgWdt8CRj&market=2&designation=appraisal&pricing=sell&persist=true&compactize=true&pricePercentage=1',
           requestOptions
