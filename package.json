@@ -8,6 +8,10 @@
     "format": "prettier .  --write",
     "preview": "vite preview --port 5050"
   },
+  "engines": {
+    "node": "14.15.5",
+    "npm": "7.19.9"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
