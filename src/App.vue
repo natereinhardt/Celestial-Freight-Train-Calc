@@ -28,6 +28,10 @@ import { RouterView } from 'vue-router';
 <style scoped>
 @import '@/assets/base.css';
 
+@font-face {
+  font-family: "Shentox";
+  src: url('@/assets/fonts/Shentox-light.ttf') format('truetype');
+}
 
 #app {
   font-family: "Shentox";

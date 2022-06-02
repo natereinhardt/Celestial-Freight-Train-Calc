@@ -163,12 +163,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-@font-face {
-  font-family: "Shentox";
-  src: url('@/assets/fonts/Shentox-light.ttf') format('truetype');
-}
-
 .radio input[type="radio"] {
   position: absolute;
   opacity: 0;
