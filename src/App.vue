@@ -10,7 +10,7 @@ import { RouterView } from 'vue-router';
         <div class="top-nav">
           <TitleBar />
         </div>
-        <div class=content-wrapper>
+        <div class="content-wrapper">
           <RouterView />
         </div>
         <div class="footer">
@@ -24,13 +24,11 @@ import { RouterView } from 'vue-router';
   </Suspense>
 </template>
 
-
 <style scoped>
 @import '@/assets/base.css';
 
-
 #app {
-  font-family: "Shentox";
+  font-family: 'Shentox';
   font-size: 20px;
   color: white;
   max-width: 1280px;
@@ -65,7 +63,6 @@ header {
   }
 }
 
-
 @media (min-width: 1024px) {
   body {
     display: flex;
@@ -83,6 +80,5 @@ header {
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
   }
-
 }
 </style>

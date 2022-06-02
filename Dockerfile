@@ -1,6 +1,6 @@
 # build stage
-FROM node:lts-alpine as build-stage
-WORKDIR /app
+FROM node:14.15.5 as build-stage
+WORKDIR /Celestial-Frieght-Train-Calc
 COPY package*.json ./
 RUN npm install
 COPY . .
