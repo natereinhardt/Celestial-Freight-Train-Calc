@@ -27,22 +27,28 @@ export const estimationStore = defineStore('estimationStore', {
   getters: {
     getOutboundStations(state) {
       return () => {
-        return this.availableStations.filter(
-          (station) => this.inboundStation !== station
-        );
+        return this.availableStations
+          .filter((station) => this.inboundStation !== station.name)
+          .map((station) => {
+            return station.name;
+          });
       };
     },
     getInboundStations(state) {
       return () => {
-        return this.availableStations.filter(
-          (station) => this.outboundStation !== station
-        );
+        return this.availableStations
+          .filter((station) => this.outboundStation !== station.name)
+          .map((station) => {
+            return station.name;
+          });
       };
     },
     getTotalReward(state) {
       return () => {
         return (this.totalReward =
-          this.volumeMarkup * this.volume + this.minReward + this.collateralCost);
+          this.volumeMarkup * this.volume +
+          this.minReward +
+          this.collateralCost);
       };
     },
     getVolumeCost(state) {
@@ -64,9 +70,9 @@ export const estimationStore = defineStore('estimationStore', {
     },
     setStations(state) {
       return async () => {
-        return this.availableStations = await getStations()
-      }
-    }
+        return (this.availableStations = await getStations());
+      };
+    },
   },
 
   actions: {
