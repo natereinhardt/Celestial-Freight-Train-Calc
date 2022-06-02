@@ -46,7 +46,7 @@ const getSheetData = async (id, tabName) =>{
       } catch (error) {
         console.log(error);
       } finally {
-        console.log('Finished getting Available-Stations from Google Sheet', sheetDataAsJson);
+        console.log(`Finished making call to google sheets to get data from Sheet: ${id} Tab: ${tabName}`, sheetDataAsJson);
       }
 }
 const buildObject = async (sheetData) => {
