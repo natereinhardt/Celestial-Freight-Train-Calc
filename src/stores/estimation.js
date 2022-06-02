@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-
+import { getStations } from '@/services/googleSheetsService';
 export const estimationStore = defineStore('estimationStore', {
   state: () => ({
     loading: false,
@@ -8,11 +8,7 @@ export const estimationStore = defineStore('estimationStore', {
     inboundStation: '',
     quoteItems: '',
     items: [],
-    availableStations: [
-      'Jita IV - Moon 4 - Caldari Navy Assembly Plant',
-      'W4E-IT - The Troll Empire',
-      'Y19P-1 - TIRE Sector Command Delta',
-    ],
+    availableStations: [],
     jitaBuyvalue: 0,
     minReward: 25000000,
     totalReward: 0,
@@ -66,6 +62,11 @@ export const estimationStore = defineStore('estimationStore', {
           this.collateralCostPercentage * this.jitaBuyvalue);
       };
     },
+    setStations(state) {
+      return async () => {
+        return this.availableStations = await getStations()
+      }
+    }
   },
 
   actions: {

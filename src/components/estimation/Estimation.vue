@@ -1,11 +1,13 @@
-<script setup>
+<script async setup>
 import Multiselect from '@vueform/multiselect'
 import { mapState, storeToRefs } from 'pinia'
 import { estimationStore } from '@/stores/estimation'
+import { getStations } from '@/services/googleSheetsService'
 // import { ref } from 'vue'
 const { loading, error, outboundStation, inboundStation, quoteItems, outboundStations, inboundStations } = storeToRefs(estimationStore())
 
-const { getInboundStations, getOutboundStations, getEstimation } = estimationStore()
+const { getInboundStations, getOutboundStations, getEstimation, setStations } = estimationStore()
+await setStations()
 </script>
 
 <template>
