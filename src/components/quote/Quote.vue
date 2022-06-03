@@ -39,7 +39,7 @@ const {
       <h3 class="my-2 italic">Limits</h3>
     </div>
     <QuoteLineItem label="Min Reward:" :value="getMinReward()" subLabel="ISK" />
-    <QuoteLineItem label="Max Volume:" :value="getMaxVolume()" subLabel="m^3" />
+    <QuoteLineItem label="Max Volume:" :value="getMaxVolume()" subLabel="m³" />
     <QuoteLineItem
       label="Max Collateral:"
       :value="getMaxCollateral()"
@@ -59,7 +59,7 @@ const {
     <QuoteLineItem
       label="Volume in Cubic Meters:"
       :value="volume"
-      subLabel="m^3"
+      subLabel="m³"
     />
     <QuoteLineItem
       label="Jita Sell Value:"
@@ -95,7 +95,7 @@ const {
     />
     <QuoteLineItem
       label="Total Reward:"
-      :value="getTotalReward()"
+      :value="getTotalReward().toLocaleString()"
       :tooltip="`( ${volume.toLocaleString()} (Volumn) x ${volumeMarkup} (Volume Markup) ) + ${minReward} (Min Reward) + ${getCollateralCost()} (Collateral Cost)`"
       subLabel="ISK"
     />
