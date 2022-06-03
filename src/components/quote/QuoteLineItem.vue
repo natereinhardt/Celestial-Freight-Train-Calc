@@ -26,7 +26,7 @@ const hover = true
 <template>
     <div class="quote-line-item">
         <div class="label">{{ label }}
-            <Popper :class="tooltip" v-if="tooltip" :content="tooltip" :hover="hover">
+            <Popper :class="tooltip" v-if="tooltip" :content="tooltip" hover arrow>
                 <img alt="tooltip logo" class="logo" :src='question' width="15" height="15" />
             </Popper>
         </div>
@@ -36,15 +36,25 @@ const hover = true
 
 <style scoped>
 :deep(.popper) {
-    max-width:100%;
-    width: 500px;
-    background: #e92791;
-    margin-left: 3em;
-    margin-right: 3em;
+    background: var(--color-background);
+    font-size: .75em;
+    padding: 1em;
+    white-space: nowrap;
     border-radius: 20px;
     color: #fff;
+    border-width: 1em;
+    border-color: var(--ccp-modal-top-border-color);
     font-weight: bold;
-    text-transform: uppercase;
+}
+
+:deep(.popper #arrow::before) {
+    background: var(--color-background);
+}
+
+:deep(.popper:hover),
+:deep(.popper:hover > #arrow::before) {
+    background: var(--color-background);
+    border-color: var(--ccp-modal-top-border-color);
 }
 
 .quote-line-item {
