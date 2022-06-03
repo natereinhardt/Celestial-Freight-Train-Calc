@@ -19,8 +19,6 @@
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "@popperjs/core": "2.9.1",
     "@vueform/multiselect": "^2.3.4",
-    "dotenv-webpack": "^7.1.0",
-    "flowbite": "^1.4.7",
     "pinia": "^2.0.13",
     "vue": "^3.2.33",
     "vue-demi": "latest",
