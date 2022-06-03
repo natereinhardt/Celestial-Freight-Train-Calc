@@ -10,7 +10,7 @@ export const estimationStore = defineStore('estimationStore', {
     quoteItems: '',
     items: [],
     availableStations: null,
-    jitaBuyvalue: 0,
+    jitaSellValue: 0,
     minReward: 25000000,
     totalReward: 0,
     maxVolume: 300000,
@@ -21,9 +21,8 @@ export const estimationStore = defineStore('estimationStore', {
     totalCollateral: 0,
     collateral: 0,
     collateralCostPercentage: 0.01,
-    collateralCost: 0,
     estimation: null,
-    janiceCode: null,
+    janiceCode: '',
   }),
   getters: {
     getOutboundStations(state) {
@@ -46,10 +45,11 @@ export const estimationStore = defineStore('estimationStore', {
     },
     getTotalReward(state) {
       return () => {
-        return (this.totalReward =
+        const calculation =
           this.volumeMarkup * this.volume +
           this.minReward +
-          this.collateralCost);
+          this.collateralCost;
+        return (this.totalReward = Number.parseFloat(calculation).toFixed(2));
       };
     },
     getVolumeCost(state) {
@@ -60,58 +60,59 @@ export const estimationStore = defineStore('estimationStore', {
     getCollateralCost(state) {
       return () => {
         return (this.collateralCost =
-          this.jitaBuyvalue * this.collateralCostPercentage);
+          this.jitaSellValue * this.collateralCostPercentage);
       };
     },
     getTotalCollateral(state) {
-      const collateralCostPercentage = this.getCollateralCostPercentage()
+      const collateralCostPercentage = this.getCollateralCostPercentage();
       return () => {
+        const calculation = collateralCostPercentage * this.collateral;
         return (this.totalCollateral =
-          collateralCostPercentage * this.jitaBuyvalue);
+          Number.parseFloat(calculation).toFixed(2));
       };
     },
     getMinReward(state) {
       return () => {
-        let minReward = 2500000
+        let minReward = 2500000;
         this.staticData.forEach((data) => {
           if (data.key === 'minReward') {
             minReward = parseFloat(data.value);
           }
         });
-        return minReward
+        return minReward;
       };
     },
     getMaxVolume(state) {
       return () => {
-        let maxVolume = 300000
+        let maxVolume = 300000;
         this.staticData.forEach((data) => {
           if (data.key === 'maxVolume') {
             maxVolume = parseFloat(data.value);
           }
         });
-        return maxVolume
+        return maxVolume;
       };
     },
     getMaxCollateral(state) {
       return () => {
-        let maxCollateral = 4000000000
+        let maxCollateral = 4000000000;
         this.staticData.forEach((data) => {
           if (data.key === 'maxCollateral') {
             maxCollateral = parseFloat(data.value);
           }
         });
-        return maxCollateral
+        return maxCollateral;
       };
     },
     getCollateralCostPercentage(state) {
       return () => {
-        let collateralCostPercentage = 0.01
+        let collateralCostPercentage = 0.01;
         this.staticData.forEach((data) => {
           if (data.key === 'collateralCostPercentage') {
             collateralCostPercentage = parseFloat(data.value);
           }
         });
-        return collateralCostPercentage
+        return collateralCostPercentage;
       };
     },
     setStaticData(state) {
@@ -144,14 +145,14 @@ export const estimationStore = defineStore('estimationStore', {
           'https://janice.e-351.com/api/rest/v1/appraisal?key=BaSjUOMtnjzOyMllN92rJvUWgWdt8CRj&market=2&designation=appraisal&pricing=sell&persist=true&compactize=true&pricePercentage=1',
           requestOptions
         );
-        const { totalBuyPrice, code, totalVolume, items } =
+        const { totalSellPrice, code, totalVolume, items } =
           await response.json();
         this.volume = totalVolume;
         this.janiceCode = code;
-        this.jitaBuyvalue = totalBuyPrice;
-        this.collateral = totalBuyPrice;
+        this.jitaSellValue = totalSellPrice;
+        this.collateral = totalSellPrice;
         this.items = items;
-        console.log(totalBuyPrice);
+        console.log(jitaSellValue);
       } catch (error) {
         console.log(error);
         this.error = error;
