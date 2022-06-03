@@ -33,6 +33,7 @@ h2 {
   justify-content: space-around;
 }
 
+
 .create-contract-1 {
   order: 1;
 }

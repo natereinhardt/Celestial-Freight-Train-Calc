@@ -32,8 +32,8 @@ const { outboundStation, items, volume } = storeToRefs(estimationStore());
                 <thead>
                   <tr>
                     <th>
-                      <input type="checkbox" checked />
-                      <span class="checkmark" checked></span>
+                      <input type="checkbox"/>
+                      <span class="checkmark"></span>
                     </th>
                     <th>Type</th>
                     <th>Qty</th>
@@ -79,7 +79,7 @@ const { outboundStation, items, volume } = storeToRefs(estimationStore());
               Number of selected items: {{ items.length.toLocaleString() }} ({{
                 volume.toLocaleString()
               }}
-              m^3)
+              m³)
             </div>
           </div>
         </div>
