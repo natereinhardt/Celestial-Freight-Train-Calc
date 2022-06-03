@@ -6,7 +6,7 @@ import { estimationStore } from '@/stores/estimation'
 const {
     outboundStation,
     inboundStation,
-    jitaBuyvalue,
+    jitaSellValue,
     totalReward,
     minReward,
     maxVolume,
@@ -16,7 +16,8 @@ const {
     maxCollateral,
     totalCollateral,
     collateral,
-    collateralCost } = storeToRefs(estimationStore())
+    collateralCost,
+    janiceCode } = storeToRefs(estimationStore())
 
 const { getTotalReward, getTotalCollateral, getVolumeCost, getCollateralCost, getMinReward, getMaxVolume, getMaxCollateral } = estimationStore()
 
@@ -24,23 +25,37 @@ const { getTotalReward, getTotalCollateral, getVolumeCost, getCollateralCost, ge
 
 <template>
     <div class="container reasoning-container bg-gray-800 bg-opacity-10">
-        <h3>
+        <h2>
             Quote
-        </h3>
-        <div class="border-t my-2">Limits</div>
+        </h2>
+
+        <div class="border-t my-2">
+            <h3 class="my-2 italic">
+                Limits
+            </h3>
+        </div>
         <QuoteLineItem label='Min Reward:' :value='getMinReward()' subLabel="ISK" />
         <QuoteLineItem label='Max Volume:' :value='getMaxVolume()' subLabel="m^3" />
         <QuoteLineItem label='Max Collateral:' :value='getMaxCollateral()' subLabel="ISK" />
 
-        <div class="border-t my-2">Package Info</div>
+        <div class="border-t my-2">
+            <h3 class="my-2 italic">
+                Package Info
+            </h3>
+        </div>
+        <QuoteLineItem label='Janice Code:' :value='janiceCode' />
         <QuoteLineItem label='From:' :value='outboundStation' />
         <QuoteLineItem label='To:' :value='inboundStation' />
         <QuoteLineItem label='Volume in Cubic Meters:' :value='volume' subLabel="m^3" />
-        <QuoteLineItem label='Jita Buy Value:' :value='jitaBuyvalue' subLabel="ISK" />
+        <QuoteLineItem label='Jita Sell Value:' :value='jitaSellValue' subLabel="ISK" />
         <QuoteLineItem label='Collateral:' :value='collateral' subLabel="ISK" />
 
-        <div class="border-t my-2">Totals</div>
-        <QuoteLineItem label='Total Collateral:' :value='jitaBuyvalue' subLabel="ISK" />
+        <div class="border-t my-2">
+            <h3 class="my-2 italic">
+                Totals
+            </h3>
+        </div>
+        <QuoteLineItem label='Total Collateral:' :value='jitaSellValue' subLabel="ISK" />
         <QuoteLineItem label='Volume Cost:' :value='getVolumeCost()' subLabel="ISK" />
         <QuoteLineItem label='Collateral Cost:' :value='getCollateralCost()' subLabel="ISK" />
         <QuoteLineItem label='Total Reward:' :value='getTotalReward()' subLabel="ISK" />
@@ -49,14 +64,13 @@ const { getTotalReward, getTotalCollateral, getVolumeCost, getCollateralCost, ge
 </template>
 
 <style scoped>
-h1 {
-    font-weight: 500;
-    font-size: 2.6rem;
-    top: -10px;
+h2 {
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 h3 {
-    font-size: 1.2rem;
+    font-size: 1.0rem;
 }
 
 .reasoning-container {

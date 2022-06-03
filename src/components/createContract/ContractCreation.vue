@@ -7,6 +7,7 @@ import CreateContract_4_Confirm from '@/components/createContract/CreateContract
 </script>
 
 <template>
+    <h2>Mock Contract Creation</h2>
     <main class="contracts-container">
         <CreateContract_1 class="create-contract-1  bg-gray-800 bg-opacity-10" />
         <CreateContract_2 class="create-contract-2  bg-gray-800 bg-opacity-10" />
@@ -17,9 +18,16 @@ import CreateContract_4_Confirm from '@/components/createContract/CreateContract
 <style scoped>
 @import '@/assets/base.css';
 
+
+h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 1em;
+}
+
 .contracts-container {
     width: auto;
-    margin: 2em;
+    margin: 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

@@ -3,28 +3,32 @@ import Multiselect from '@vueform/multiselect'
 import { mapState, storeToRefs } from 'pinia'
 import { estimationStore } from '@/stores/estimation'
 const { loading, error, outboundStation, inboundStation, quoteItems, outboundStations, inboundStations } = storeToRefs(estimationStore())
-const { getInboundStations, getOutboundStations, getEstimation} = estimationStore()
+const { getInboundStations, getOutboundStations, getEstimation } = estimationStore()
 
 </script>
 
 <template>
     <div class="container estimation-container  bg-gray-800 bg-opacity-10">
-        <h3>
+        <h2>
             Estimation
+        </h2>
+        <h3 class="italic my-1">
+            Select the outbound and inbound stations
         </h3>
         <div>
-            Select the outbound and inbound stations
-        </div>
-        <div>
-            Outbound (Station From):
+            <div class="my-1">
+                Outbound (Station From):
+            </div>
             <Multiselect class="bg-gray-800 bg-opacity-10" v-model="outboundStation" :options="getOutboundStations()" />
         </div>
         <div>
-            Inbound (Station To):
+            <div class="my-1">
+                Inbound (Station To):
+            </div>
             <Multiselect class="bg-gray-800 bg-opacity-10" v-model="inboundStation" :options="getInboundStations()" />
         </div>
         <div class="package-details-container">
-            <div>Package Details:</div>
+            <div class="my-1">Package Details:</div>
             <textarea class="package-details" v-model="quoteItems" placeholder="Tritanium 1000 ..."></textarea>
             <button class="quote-button text-white font-bold py-2 px-4 border-b-4" @click="getEstimation()"
                 :disabled="inboundStation === '' || outboundStation === '' || quoteItems === ''">
@@ -43,8 +47,14 @@ h1 {
     top: -10px;
 }
 
+h2 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
 h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .estimation-container {

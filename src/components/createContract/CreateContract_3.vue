@@ -18,7 +18,7 @@ const {
     maxCollateral,
     totalCollateral,
     collateral,
-    collateralCost } = storeToRefs(estimationStore())
+    collateralCost, janiceCode } = storeToRefs(estimationStore())
 </script>
 
 <template>
@@ -61,7 +61,7 @@ const {
                     <div class="quote-line-item">
                         <label class="label" for="name">Description</label>
                         <div class="value" type="text" id="name" name="name">
-                            Yo Mamma
+                            {{ janiceCode }}
                         </div>
                     </div>
                 </div>

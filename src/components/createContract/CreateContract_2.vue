@@ -24,57 +24,52 @@ const {
                             {{ outboundStation }} ({{ items.length }} Items)
                             <font-awesome-icon :icon="['fas', 'caret-down']" />
                         </div>
-
-                        <table class="table-auto">
-                            <thead>
-                                <tr>
-                                    <th> <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </th>
-                                    <th>Type</th>
-                                    <th>Qty</th>
-                                    <th>Volume</th>
-                                    <th>Details</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </td>
-                                    <td>Youre item...</td>
-                                    <td>x</td>
-                                    <td>x.x</td>
-                                    <td>xxxx</td>
-                                </tr>
-                                <tr>
-                                    <td> <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </td>
-                                    <td>Youre item...</td>
-                                    <td>x</td>
-                                    <td>x.x</td>
-                                    <td>xxxx</td>
-                                </tr>
-                                <tr>
-                                    <td> <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </td>
-                                    <td>Youre item...</td>
-                                    <td>x</td>
-                                    <td>x.x</td>
-                                    <td>xxxx</td>
-                                </tr>
-                            </tbody>
-                            <!-- <tr>
-                                <td>Centro comercial Moctezuma</td>
-                                <td>Francisco Chang</td>
-                                <td>Mexico</td>
-                            </tr> -->
-                        </table>
-
-                        <div>Number of selected items: {{ items.length.toLocaleString() }} ({{ volume.toLocaleString()
+                        <div>
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                <thead>
+                                    <tr>
+                                        <th> <input type="checkbox" checked>
+                                            <span class="checkmark" checked></span>
+                                        </th>
+                                        <th>Type</th>
+                                        <th>Qty</th>
+                                        <th>Volume</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </td>
+                                        <td>Youre item...</td>
+                                        <td>x</td>
+                                        <td>x.x</td>
+                                        <td>xxxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </td>
+                                        <td>Youre item...</td>
+                                        <td>x</td>
+                                        <td>x.x</td>
+                                        <td>xxxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td> <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </td>
+                                        <td>Youre item...</td>
+                                        <td>x</td>
+                                        <td>x.x</td>
+                                        <td>xxxx</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="num-items">Number of selected items: {{ items.length.toLocaleString() }} ({{ volume.toLocaleString()
                         }}
                             m^3)</div>
                     </div>
@@ -93,22 +88,11 @@ const {
     font-size: .80em;
     align-self: center;
     padding: .5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
     border: 1px solid grey;
     height: 2.5em;
     border-bottom-right-radius: .75em;
-}
-
-.checkbox-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-
-}
-
-.checkbox-label {
-    margin-left: 2em;
 }
 
 /* Create a custom checkbox */
@@ -120,6 +104,11 @@ const {
     width: 15px;
     border: 1px solid grey;
     background-color: black;
+}
+
+.num-items { 
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 /* When the checkbox is checked, add a black background */

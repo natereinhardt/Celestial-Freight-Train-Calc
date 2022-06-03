@@ -127,6 +127,7 @@ const { loading, error, contractTo } = storeToRefs(createContractStore())
 }
 
 .value {
+    padding-left: 1em;
     order: 2;
 }
 </style>

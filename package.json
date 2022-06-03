@@ -17,14 +17,17 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "@popperjs/core": "2.9.1",
     "@vueform/multiselect": "^2.3.4",
     "dotenv-webpack": "^7.1.0",
+    "flowbite": "^1.4.7",
     "pinia": "^2.0.13",
     "vue": "^3.2.33",
     "vue-demi": "latest",
     "vue-google-oauth2": "^1.5.8",
     "vue-gsheets": "^4.0.3",
-    "vue-router": "^4.0.14"
+    "vue-router": "^4.0.14",
+    "vue3-popper": "^1.5.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
