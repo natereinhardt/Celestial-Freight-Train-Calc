@@ -17,7 +17,6 @@ const {
     totalCollateral,
     collateralCostPercentage,
     collateral,
-    collateralCost,
     janiceCode } = storeToRefs(estimationStore())
 
 const { getTotalReward, getTotalCollateral, getVolumeCost, getCollateralCost, getMinReward, getMaxVolume, getMaxCollateral } = estimationStore()
@@ -44,24 +43,23 @@ const { getTotalReward, getTotalCollateral, getVolumeCost, getCollateralCost, ge
                 Package Info
             </h3>
         </div>
-        <QuoteLineItem label='Janice Code:' :value='janiceCode' />
+        <QuoteLineItem label='Janice Code:' :value='janiceCode' url="https://janice.e-351.com/a"/>
         <QuoteLineItem label='From:' :value='outboundStation' />
         <QuoteLineItem label='To:' :value='inboundStation' />
         <QuoteLineItem label='Volume in Cubic Meters:' :value='volume' subLabel="m^3" />
         <QuoteLineItem label='Jita Sell Value:' :value='jitaSellValue' subLabel="ISK" />
-        <QuoteLineItem label='Collateral:' :value='collateral' subLabel="ISK" />
-
+        <QuoteLineItem label='Collateral:' :value='collateral' :tooltip="`${jitaSellValue.toLocaleString()} (Jita Sell Value) ISK`" subLabel="ISK" />
         <div class="border-t my-2">
             <h3 class="my-2 italic">
                 Totals
             </h3>
         </div>
-        <QuoteLineItem label='Total Collateral:' :value='jitaSellValue' subLabel="ISK" />
-        <QuoteLineItem label='Volume Cost:' :value='getVolumeCost()'  subLabel="ISK" />
-        <QuoteLineItem label='Collateral Cost:' :value='getCollateralCost()' :tooltip="`${collateral} x ${collateralCostPercentage.toLocaleString()}`" subLabel="ISK" />
-        <QuoteLineItem label='Total Reward:' :value='getTotalReward()' subLabel="ISK" />
+        <QuoteLineItem label='Total Collateral:' :value='jitaSellValue' :tooltip="`${jitaSellValue.toLocaleString()} (Jita Sell Value) ISK`" subLabel="ISK" />
+        <QuoteLineItem label='Collateral Cost:' :value='getCollateralCost()'
+            :tooltip="`${collateral} (Collateral) x ${collateralCostPercentage.toLocaleString()} (Collateral Markup)`" subLabel="ISK" />
+        <QuoteLineItem label='Volume Cost:' :value='getVolumeCost()' :tooltip="`${volume.toLocaleString()} (Volumn) x ${volumeMarkup} (Volume Markup)`" subLabel="ISK" />
+        <QuoteLineItem label='Total Reward:' :value='getTotalReward()' :tooltip="`( ${volume.toLocaleString()} (Volumn) x ${volumeMarkup} (Volume Markup) ) + ${minReward} (Min Reward) + ${getCollateralCost()} (Collateral Cost)`" subLabel="ISK" />
     </div>
-
 </template>
 
 <style scoped>

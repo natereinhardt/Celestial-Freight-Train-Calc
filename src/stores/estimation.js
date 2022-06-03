@@ -21,7 +21,6 @@ export const estimationStore = defineStore('estimationStore', {
     totalCollateral: 0,
     collateral: 0,
     collateralCostPercentage: 0.01,
-    collateralCost: 0,
     estimation: null,
     janiceCode: '',
   }),
@@ -46,10 +45,10 @@ export const estimationStore = defineStore('estimationStore', {
     },
     getTotalReward(state) {
       return () => {
-        return (this.totalReward =
-          this.volumeMarkup * this.volume +
-          this.minReward +
-          this.collateralCost);
+        const calculation =  this.volumeMarkup * this.volume +
+        this.minReward +
+        this.collateralCost;
+        return this.totalReward = Number.parseFloat(calculation).toFixed(2)
       };
     },
     getVolumeCost(state) {
@@ -66,8 +65,8 @@ export const estimationStore = defineStore('estimationStore', {
     getTotalCollateral(state) {
       const collateralCostPercentage = this.getCollateralCostPercentage();
       return () => {
-        return (this.totalCollateral =
-          collateralCostPercentage * this.jitaSellValue);
+        const calculation = collateralCostPercentage * this.collateral
+        return this.totalCollateral =Number.parseFloat(calculation).toFixed(2)
       };
     },
     getMinReward(state) {
@@ -144,14 +143,13 @@ export const estimationStore = defineStore('estimationStore', {
           'https://janice.e-351.com/api/rest/v1/appraisal?key=BaSjUOMtnjzOyMllN92rJvUWgWdt8CRj&market=2&designation=appraisal&pricing=sell&persist=true&compactize=true&pricePercentage=1',
           requestOptions
         );
-        const { totalBuyPrice, code, totalVolume, items } =
-          await response.json();
+        const { totalSellPrice, code, totalVolume, items } = await response.json();
         this.volume = totalVolume;
         this.janiceCode = code;
-        this.jitaSelValue = totalSellPrice;
+        this.jitaSellValue = totalSellPrice;
         this.collateral = totalSellPrice;
         this.items = items;
-        console.log(totalBuyPrice);
+        console.log(jitaSellValue);
       } catch (error) {
         console.log(error);
         this.error = error;

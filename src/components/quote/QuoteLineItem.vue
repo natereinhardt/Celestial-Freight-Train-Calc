@@ -18,6 +18,10 @@ defineProps({
     tooltip: {
         required: false,
         type: String
+    },
+    url: {
+        requied: false,
+        type: String
     }
 });
 const hover = true
@@ -30,7 +34,12 @@ const hover = true
                 <img alt="tooltip logo" class="logo" :src='question' width="15" height="15" />
             </Popper>
         </div>
-        <div class="value">{{ value.toLocaleString() }} {{ subLabel }}</div>
+        <div v-if="url" class="value">
+            <a :href="`${url}/${value}`" target="_blank">{{
+                    value.toLocaleString()
+            }} {{ subLabel }}</a>
+        </div>
+        <div v-else class="value">{{ value.toLocaleString() }} {{ subLabel }}</div>
     </div>
 </template>
 
