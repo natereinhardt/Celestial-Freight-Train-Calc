@@ -15,6 +15,7 @@ const {
     volumeCost,
     maxCollateral,
     totalCollateral,
+    collateralCostPercentage,
     collateral,
     collateralCost,
     janiceCode } = storeToRefs(estimationStore())
@@ -56,8 +57,8 @@ const { getTotalReward, getTotalCollateral, getVolumeCost, getCollateralCost, ge
             </h3>
         </div>
         <QuoteLineItem label='Total Collateral:' :value='jitaSellValue' subLabel="ISK" />
-        <QuoteLineItem label='Volume Cost:' :value='getVolumeCost()' subLabel="ISK" />
-        <QuoteLineItem label='Collateral Cost:' :value='getCollateralCost()' subLabel="ISK" />
+        <QuoteLineItem label='Volume Cost:' :value='getVolumeCost()'  subLabel="ISK" />
+        <QuoteLineItem label='Collateral Cost:' :value='getCollateralCost()' :tooltip="`${collateral} x ${collateralCostPercentage.toLocaleString()}`" subLabel="ISK" />
         <QuoteLineItem label='Total Reward:' :value='getTotalReward()' subLabel="ISK" />
     </div>
 

@@ -14,6 +14,10 @@ defineProps({
     subLabel: {
         required: false,
         type: String,
+    },
+    tooltip: {
+        required: false,
+        type: String
     }
 });
 const hover = true
@@ -21,10 +25,9 @@ const hover = true
 
 <template>
     <div class="quote-line-item">
-        <div class="label">{{ label }}</div>
-        <div class="tooltip">
-            <Popper content="Hello World" :hover="hover">
-            <img alt="tooltip logo" class="logo" :src='question' width="20" height="20" />
+        <div class="label">{{ label }}
+            <Popper v-if="tooltip" :content="tooltip" :hover="hover">
+                <img alt="tooltip logo" class="logo" :src='question' width="15" height="15" />
             </Popper>
         </div>
         <div class="value">{{ value.toLocaleString() }} {{ subLabel }}</div>
@@ -40,6 +43,8 @@ const hover = true
 
 .label {
     order: 1;
+    float: left;
+    flex-shrink: 5;
 }
 
 .value {
