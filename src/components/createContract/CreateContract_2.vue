@@ -32,7 +32,7 @@ const { outboundStation, items, volume } = storeToRefs(estimationStore());
                 <thead>
                   <tr>
                     <th>
-                      <input type="checkbox"/>
+                      <input type="checkbox" />
                       <span class="checkmark"></span>
                     </th>
                     <th>Type</th>

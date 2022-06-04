@@ -63,29 +63,38 @@ const { loading, error, contractTo } = storeToRefs(createContractStore());
           <div class="quote-line-item">
             <label class="label" for="name">Deposit</label>
             <div class="value" type="text" id="name" name="name">
-              {{ totalReward.toLocaleString(undefined, {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2
-}) }} ISK
+              {{
+                totalReward.toLocaleString(undefined, {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })
+              }}
+              ISK
             </div>
           </div>
           <div class="border-t my-2"></div>
           <div class="quote-line-item">
             <label class="label" for="name">Reward</label>
             <div class="value" type="text" id="name" name="name">
-              {{ totalReward.toLocaleString(undefined, {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2
-}) }} ISK
+              {{
+                totalReward.toLocaleString(undefined, {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })
+              }}
+              ISK
             </div>
           </div>
           <div class="quote-line-item">
             <label class="label" for="name">Collateral</label>
             <div class="value" type="text" id="name" name="name">
-              {{ collateral.toLocaleString(undefined, {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2
-}) }} ISK
+              {{
+                collateral.toLocaleString(undefined, {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })
+              }}
+              ISK
             </div>
           </div>
           <div class="quote-line-item">

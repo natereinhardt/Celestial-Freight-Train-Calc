@@ -18,7 +18,7 @@ const { getInboundStations, getOutboundStations, getEstimation } =
 <template>
   <div class="container estimation-container bg-gray-800 bg-opacity-10">
     <h2>Estimation</h2>
-    <h3 class="italic my-1">Select the outbound and inbound stations</h3>
+    <h3 class="italic my-1">Select the inbound and outbound stations</h3>
     <div>
       <div class="my-1">Outbound (Station From):</div>
       <Multiselect

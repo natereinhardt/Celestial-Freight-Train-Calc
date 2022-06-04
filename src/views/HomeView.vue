@@ -1,4 +1,4 @@
-<script async setup>
+<script setup>
 import Quote from '@/components/quote/Quote.vue';
 import Estimation from '@/components/estimation/Estimation.vue';
 import ContractCreation from '@/components/createContract/ContractCreation.vue';
