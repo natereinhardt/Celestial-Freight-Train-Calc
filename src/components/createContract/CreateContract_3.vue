@@ -44,13 +44,19 @@ const {
           <div class="quote-line-item">
             <label class="label" for="name">Reward</label>
             <div class="value" type="text" id="name" name="name">
-              {{ totalReward.toLocaleString() }}
+              {{ totalReward.toLocaleString(undefined, {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
+}) }}
             </div>
           </div>
           <div class="quote-line-item">
             <label class="label" for="name">Collateral</label>
             <div class="value" type="text" id="name" name="name">
-              {{ collateral.toLocaleString() }}
+              {{ collateral.toLocaleString(undefined, {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
+}) }}
             </div>
           </div>
           <div class="quote-line-item">

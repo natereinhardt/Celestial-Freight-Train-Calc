@@ -49,7 +49,7 @@ export const estimationStore = defineStore('estimationStore', {
           this.volumeMarkup * this.volume +
           this.minReward +
           this.collateralCost;
-        return (this.totalReward = Number.parseFloat(calculation).toFixed(2));
+        return (this.totalReward = parseFloat(calculation));
       };
     },
     getVolumeCost(state) {
@@ -68,7 +68,7 @@ export const estimationStore = defineStore('estimationStore', {
       return () => {
         const calculation = collateralCostPercentage * this.collateral;
         return (this.totalCollateral =
-          Number.parseFloat(calculation).toFixed(2));
+          parseFloat(calculation));
       };
     },
     getMinReward(state) {
