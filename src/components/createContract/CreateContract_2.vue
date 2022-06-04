@@ -47,7 +47,7 @@ const { outboundStation, items, volume } = storeToRefs(estimationStore());
                       <input type="checkbox" />
                       <span class="checkmark"></span>
                     </td>
-                    <td>Youre item...</td>
+                    <td>You're item...</td>
                     <td>x</td>
                     <td>x.x</td>
                     <td>xxxx</td>
@@ -57,7 +57,7 @@ const { outboundStation, items, volume } = storeToRefs(estimationStore());
                       <input type="checkbox" />
                       <span class="checkmark"></span>
                     </td>
-                    <td>Youre item...</td>
+                    <td>You're item...</td>
                     <td>x</td>
                     <td>x.x</td>
                     <td>xxxx</td>
@@ -67,7 +67,7 @@ const { outboundStation, items, volume } = storeToRefs(estimationStore());
                       <input type="checkbox" />
                       <span class="checkmark"></span>
                     </td>
-                    <td>Youre item...</td>
+                    <td>You're item...</td>
                     <td>x</td>
                     <td>x.x</td>
                     <td>xxxx</td>

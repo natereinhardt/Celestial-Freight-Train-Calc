@@ -51,7 +51,7 @@ const hover = true;
 
 <style scoped>
 :deep(.popper) {
-  background: var(--color-background);
+  background: rgb(34, 32, 32);
   font-size: 0.75em;
   padding: 1em;
   white-space: nowrap;
@@ -63,12 +63,12 @@ const hover = true;
 }
 
 :deep(.popper #arrow::before) {
-  background: var(--color-background);
+  background: rgb(34, 32, 32);
 }
 
 :deep(.popper:hover),
 :deep(.popper:hover > #arrow::before) {
-  background: var(--color-background);
+  background: rgb(34, 32, 32);
   border-color: var(--ccp-modal-top-border-color);
 }
 
