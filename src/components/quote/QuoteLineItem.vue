@@ -2,6 +2,7 @@
 import question from '@/assets/question.png';
 
 import Popper from 'vue3-popper';
+
 defineProps({
   label: {
     type: String,
@@ -22,14 +23,21 @@ defineProps({
     requied: false,
     type: String,
   },
+  compare1: {
+    required: false,
+    type: Number,
+  },
+  compare2: {
+    required: false,
+    type: Number,
+  },
 });
-const hover = true;
 </script>
 
 <template>
   <div class="quote-line-item">
     <div class="label">
-      {{ label }}
+      {{ label }}:
       <Popper :class="tooltip" v-if="tooltip" :content="tooltip" hover arrow>
         <img
           alt="tooltip logo"
@@ -44,6 +52,23 @@ const hover = true;
       <a :href="`${url}/${value}`" target="_blank"
         >{{ value.toLocaleString() }} {{ subLabel }}</a
       >
+    </div>
+    <div v-else-if="compare1 > compare2" class="value-warn">
+      {{ value.toLocaleString() }} {{ subLabel }}
+      <Popper
+        :class="tooltip"
+        :content="`${label} of ${value.toLocaleString()} exceeds the Max ${label} of ${compare2.toLocaleString()}. Please split up your items into multiple packages`"
+        hover
+        arrow
+      >
+        <img
+          alt="tooltip logo"
+          class="logo"
+          :src="question"
+          width="15"
+          height="15"
+        />
+      </Popper>
     </div>
     <div v-else class="value">{{ value.toLocaleString() }} {{ subLabel }}</div>
   </div>
@@ -83,6 +108,14 @@ const hover = true;
   order: 1;
   float: left;
   flex-shrink: 5;
+}
+
+.value-warn {
+  max-width: 100%;
+  order: 1;
+  float: left;
+  flex-shrink: 5;
+  color: red;
 }
 
 .value {

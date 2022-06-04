@@ -68,7 +68,7 @@ export const estimationStore = defineStore('estimationStore', {
       return () => {
         const calculation = collateralCostPercentage * this.collateral;
         return (this.totalCollateral =
-          parseFloat(calculation));
+          Number.parseFloat(calculation));
       };
     },
     getMinReward(state) {
@@ -137,7 +137,6 @@ export const estimationStore = defineStore('estimationStore', {
         },
         body: this.quoteItems,
       };
-      console.log(requestOptions);
       this.estimation = null;
       this.loading = true;
       try {
