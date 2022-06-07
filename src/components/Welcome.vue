@@ -20,7 +20,7 @@
       <br>
       <p>
         NOTE: To best serve you - please make your you DO NOT have containers with or without items in them in your contract. Repackage any containers to be safe. Keep
-        your courier contracts a flat as possibles</p>
+        your courier contracts a flat as possible</p>
 
     </div>
   </div>
