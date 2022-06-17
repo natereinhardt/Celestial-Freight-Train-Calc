@@ -101,6 +101,13 @@
   --ms-option-px: 0.75rem;
 
   --ms-empty-color: #4B5563;
+
+  --popper-theme-background-color: rgb(34, 32, 32);
+  --popper-theme-background-color-hover: rgb(34, 32, 32);
+  --popper-theme-border-width: 1em;
+  --popper-theme-border-color: var(--ccp-modal-top-border-color);
+  --popper-theme-border-radius: 20px;
+  --popper-theme-padding: 1em;
 }
   :root {
     --color-background: var(--vt-c-black);
@@ -178,3 +185,4 @@ body {
 .radio input[type="radio"]+.radio-label:empty:before {
   margin-right: 0;
 }
+

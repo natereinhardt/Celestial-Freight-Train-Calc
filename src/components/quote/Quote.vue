@@ -90,7 +90,10 @@ const {
     <QuoteLineItem
       label="Collateral Cost"
       :value="getCollateralCost()"
-      :tooltip="`${collateral} (Collateral) x ${collateralCostPercentage.toLocaleString()} (Collateral Markup)`"
+      :tooltip="`${collateral} (Collateral) x ${collateralCostPercentage.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })} (Collateral Markup)`"
       subLabel="ISK"
     />
     <QuoteLineItem

@@ -76,27 +76,10 @@ defineProps({
 
 <style scoped>
 :deep(.popper) {
-  background: rgb(34, 32, 32);
   font-size: 0.75em;
-  padding: 1em;
   white-space: nowrap;
-  border-radius: 20px;
-  color: #fff;
-  border-width: 1em;
-  border-color: var(--ccp-modal-top-border-color);
   font-weight: bold;
 }
-
-:deep(.popper #arrow::before) {
-  background: rgb(34, 32, 32);
-}
-
-:deep(.popper:hover),
-:deep(.popper:hover > #arrow::before) {
-  background: rgb(34, 32, 32);
-  border-color: var(--ccp-modal-top-border-color);
-}
-
 .quote-line-item {
   display: flex;
   justify-content: space-between;
