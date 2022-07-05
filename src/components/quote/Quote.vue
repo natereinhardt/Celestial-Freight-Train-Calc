@@ -110,7 +110,7 @@ const {
           maximumFractionDigits: 2,
         })
       "
-      :tooltip="`( ${volume.toLocaleString()} (Volumn) x ${volumeMarkup} (Volume Markup) ) + ${minReward} (Min Reward) + ${getCollateralCost()} (Collateral Cost)`"
+      :tooltip="`( ${volume.toLocaleString()} (Volumn) x ${volumeMarkup} (Volume Markup) ) + ${getCollateralCost()} (Collateral Cost)`"
       subLabel="ISK"
     />
   </div>
