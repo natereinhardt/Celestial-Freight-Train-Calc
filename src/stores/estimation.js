@@ -47,9 +47,9 @@ export const estimationStore = defineStore('estimationStore', {
       return () => {
         const calculation =
           this.volumeMarkup * this.volume +
-          this.minReward +
           this.collateralCost;
-        return (this.totalReward = parseFloat(calculation));
+          const ifElseReward = calculation > this.minReward ? calculation : this.minReward
+        return (this.totalReward = parseFloat(ifElseReward));
       };
     },
     getVolumeCost(state) {
