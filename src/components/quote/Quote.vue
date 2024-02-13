@@ -1,7 +1,7 @@
 <script setup>
-import QuoteLineItem from '@/components/quote/QuoteLineItem.vue';
-import { storeToRefs } from 'pinia';
-import { estimationStore } from '@/stores/estimation';
+import QuoteLineItem from '@/components/quote/QuoteLineItem.vue'
+import { storeToRefs } from 'pinia'
+import { estimationStore } from '@/stores/estimation'
 
 const {
   outboundStation,
@@ -14,8 +14,8 @@ const {
   maxCollateral,
   collateralCostPercentage,
   collateral,
-  janiceCode,
-} = storeToRefs(estimationStore());
+  janiceCode
+} = storeToRefs(estimationStore())
 
 const {
   getTotalReward,
@@ -23,8 +23,8 @@ const {
   getCollateralCost,
   getMinReward,
   getMaxVolume,
-  getMaxCollateral,
-} = estimationStore();
+  getMaxCollateral
+} = estimationStore()
 </script>
 
 <template>
@@ -36,20 +36,12 @@ const {
     </div>
     <QuoteLineItem label="Min Reward:" :value="getMinReward()" subLabel="ISK" />
     <QuoteLineItem label="Max Volume:" :value="getMaxVolume()" subLabel="m³" />
-    <QuoteLineItem
-      label="Max Collateral:"
-      :value="getMaxCollateral()"
-      subLabel="ISK"
-    />
+    <QuoteLineItem label="Max Collateral:" :value="getMaxCollateral()" subLabel="ISK" />
 
     <div class="border-t my-2">
       <h3 class="my-2 italic">Package Info</h3>
     </div>
-    <QuoteLineItem
-      label="Janice Code"
-      :value="janiceCode"
-      url="https://janice.e-351.com/a"
-    />
+    <QuoteLineItem label="Janice Code" :value="janiceCode" url="https://janice.e-351.com/a" />
     <QuoteLineItem label="From" :value="outboundStation" />
     <QuoteLineItem label="To" :value="inboundStation" />
     <QuoteLineItem
@@ -59,17 +51,13 @@ const {
       :compare1="volume"
       :compare2="maxVolume"
     />
-    <QuoteLineItem
-      label="Jita Sell Value"
-      :value="jitaSellValue"
-      subLabel="ISK"
-    />
+    <QuoteLineItem label="Jita Sell Value" :value="jitaSellValue" subLabel="ISK" />
     <QuoteLineItem
       label="Collateral"
       :value="collateral"
       :tooltip="`${jitaSellValue.toLocaleString(undefined, {
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 2
       })} (Jita Sell Value) ISK`"
       subLabel="ISK"
     />
@@ -83,7 +71,7 @@ const {
       :compare2="maxCollateral"
       :tooltip="`${jitaSellValue.toLocaleString(undefined, {
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 2
       })} (Jita Sell Value) ISK`"
       subLabel="ISK"
     />
@@ -92,7 +80,7 @@ const {
       :value="getCollateralCost()"
       :tooltip="`${collateral} (Collateral) x ${collateralCostPercentage.toLocaleString(undefined, {
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 2
       })} (Collateral Markup)`"
       subLabel="ISK"
     />
@@ -107,7 +95,7 @@ const {
       :value="
         getTotalReward().toLocaleString(undefined, {
           minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
+          maximumFractionDigits: 2
         })
       "
       :tooltip="`( ${volume.toLocaleString()} (Volumn) x ${volumeMarkup} (Volume Markup) ) + ${getCollateralCost()} (Collateral Cost)`"

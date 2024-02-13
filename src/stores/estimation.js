@@ -11,7 +11,7 @@ export const estimationStore = defineStore('estimationStore', {
     items: [],
     availableStations: null,
     jitaSellValue: 0,
-    minReward: 25000000,
+    minReward: 10000000,
     totalReward: 0,
     maxVolume: 300000,
     volume: 0,
@@ -46,9 +46,10 @@ export const estimationStore = defineStore('estimationStore', {
     getTotalReward(state) {
       return () => {
         const calculation =
-          this.volumeMarkup * this.volume +
-          this.collateralCost;
-          const ifElseReward = calculation > this.minReward ? calculation : this.minReward
+          this.volumeMarkup * this.volume + this.collateralCost;
+        const ifElseReward =
+          calculation > this.minReward ? calculation : this.minReward;
+        state.totalReward = parseFloat(ifElseReward);
         return (this.totalReward = parseFloat(ifElseReward));
       };
     },
@@ -67,18 +68,18 @@ export const estimationStore = defineStore('estimationStore', {
       const collateralCostPercentage = this.getCollateralCostPercentage();
       return () => {
         const calculation = collateralCostPercentage * this.collateral;
-        return (this.totalCollateral =
-          Number.parseFloat(calculation));
+        return (this.totalCollateral = Number.parseFloat(calculation));
       };
     },
     getMinReward(state) {
       return () => {
-        let minReward = 2500000;
+        let minReward = 1000000;
         this.staticData.forEach((data) => {
           if (data.key === 'minReward') {
             minReward = parseFloat(data.value);
           }
         });
+        this.minReward = minReward;
         return minReward;
       };
     },

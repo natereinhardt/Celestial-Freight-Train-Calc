@@ -1,9 +1,9 @@
 <script setup>
-import contractImg from '@/assets/contracts.png';
-import courierContractImg from '@/assets/contractcourier.png';
-import CreateContractHeader from '@/components/createContract/CreateContractHeader.vue';
-import { storeToRefs } from 'pinia';
-import { estimationStore } from '@/stores/estimation';
+import contractImg from '@/assets/contracts.png'
+import courierContractImg from '@/assets/contractcourier.png'
+import CreateContractHeader from '@/components/createContract/CreateContractHeader.vue'
+import { storeToRefs } from 'pinia'
+import { estimationStore } from '@/stores/estimation'
 
 const {
   outboundStation,
@@ -19,8 +19,8 @@ const {
   totalCollateral,
   collateral,
   collateralCost,
-  janiceCode,
-} = storeToRefs(estimationStore());
+  janiceCode
+} = storeToRefs(estimationStore())
 </script>
 
 <template>
@@ -47,7 +47,7 @@ const {
               {{
                 totalReward.toLocaleString(undefined, {
                   minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
+                  maximumFractionDigits: 2
                 })
               }}
             </div>
@@ -58,7 +58,7 @@ const {
               {{
                 collateral.toLocaleString(undefined, {
                   minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
+                  maximumFractionDigits: 2
                 })
               }}
             </div>

@@ -1,8 +1,8 @@
 <script setup>
-import CreateContract_1 from '@/components/createContract/CreateContract_1.vue';
-import CreateContract_2 from '@/components/createContract/CreateContract_2.vue';
-import CreateContract_3 from '@/components/createContract/CreateContract_3.vue';
-import CreateContract_4_Confirm from '@/components/createContract/CreateContract_4_Confirm.vue';
+import CreateContract_1 from '@/components/createContract/CreateContract_1.vue'
+import CreateContract_2 from '@/components/createContract/CreateContract_2.vue'
+import CreateContract_3 from '@/components/createContract/CreateContract_3.vue'
+import CreateContract_4_Confirm from '@/components/createContract/CreateContract_4_Confirm.vue'
 </script>
 
 <template>
@@ -11,9 +11,7 @@ import CreateContract_4_Confirm from '@/components/createContract/CreateContract
     <CreateContract_1 class="create-contract-1 bg-gray-800 bg-opacity-10" />
     <CreateContract_2 class="create-contract-2 bg-gray-800 bg-opacity-10" />
     <CreateContract_3 class="create-contract-3 bg-gray-800 bg-opacity-10" />
-    <CreateContract_4_Confirm
-      class="create-contract-4-confirm bg-gray-800 bg-opacity-10"
-    />
+    <CreateContract_4_Confirm class="create-contract-4-confirm bg-gray-800 bg-opacity-10" />
   </main>
 </template>
 <style scoped>

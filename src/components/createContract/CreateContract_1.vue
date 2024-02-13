@@ -1,9 +1,9 @@
 <script setup>
-import contractImg from '@/assets/contracts.png';
-import { storeToRefs } from 'pinia';
-import CreateContractHeader from '@/components/createContract/CreateContractHeader.vue';
-import { createContractStore } from '@/stores/createContract';
-const { loading, error, contractTo } = storeToRefs(createContractStore());
+import contractImg from '@/assets/contracts.png'
+import { storeToRefs } from 'pinia'
+import CreateContractHeader from '@/components/createContract/CreateContractHeader.vue'
+import { createContractStore } from '@/stores/createContract'
+const { loading, error, contractTo } = storeToRefs(createContractStore())
 </script>
 
 <template>

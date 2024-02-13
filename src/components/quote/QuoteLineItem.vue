@@ -1,37 +1,37 @@
 <script setup>
-import question from '@/assets/question.png';
+import question from '@/assets/question.png'
 
-import Popper from 'vue3-popper';
+import Popper from 'vue3-popper'
 
 defineProps({
   label: {
     type: String,
-    required: true,
+    required: true
   },
   value: {
-    required: true,
+    required: true
   },
   subLabel: {
     required: false,
-    type: String,
+    type: String
   },
   tooltip: {
     required: false,
-    type: String,
+    type: String
   },
   url: {
     requied: false,
-    type: String,
+    type: String
   },
   compare1: {
     required: false,
-    type: Number,
+    type: Number
   },
   compare2: {
     required: false,
-    type: Number,
-  },
-});
+    type: Number
+  }
+})
 </script>
 
 <template>
@@ -39,19 +39,11 @@ defineProps({
     <div class="label">
       {{ label }}:
       <Popper :class="tooltip" v-if="tooltip" :content="tooltip" hover arrow>
-        <img
-          alt="tooltip logo"
-          class="logo"
-          :src="question"
-          width="15"
-          height="15"
-        />
+        <img alt="tooltip logo" class="logo" :src="question" width="15" height="15" />
       </Popper>
     </div>
     <div v-if="url" class="value">
-      <a :href="`${url}/${value}`" target="_blank"
-        >{{ value.toLocaleString() }} {{ subLabel }}</a
-      >
+      <a :href="`${url}/${value}`" target="_blank">{{ value.toLocaleString() }} {{ subLabel }}</a>
     </div>
     <div v-else-if="compare1 > compare2" class="value-warn">
       {{ value.toLocaleString() }} {{ subLabel }}
@@ -61,13 +53,7 @@ defineProps({
         hover
         arrow
       >
-        <img
-          alt="tooltip logo"
-          class="logo"
-          :src="question"
-          width="15"
-          height="15"
-        />
+        <img alt="tooltip logo" class="logo" :src="question" width="15" height="15" />
       </Popper>
     </div>
     <div v-else class="value">{{ value.toLocaleString() }} {{ subLabel }}</div>

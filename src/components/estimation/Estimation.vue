@@ -1,7 +1,7 @@
 <script async setup>
-import Multiselect from '@vueform/multiselect';
-import { storeToRefs } from 'pinia';
-import { estimationStore } from '@/stores/estimation';
+import Multiselect from '@vueform/multiselect'
+import { storeToRefs } from 'pinia'
+import { estimationStore } from '@/stores/estimation'
 const {
   loading,
   error,
@@ -9,10 +9,9 @@ const {
   inboundStation,
   quoteItems,
   outboundStations,
-  inboundStations,
-} = storeToRefs(estimationStore());
-const { getInboundStations, getOutboundStations, getEstimation } =
-  estimationStore();
+  inboundStations
+} = storeToRefs(estimationStore())
+const { getInboundStations, getOutboundStations, getEstimation } = estimationStore()
 </script>
 
 <template>
@@ -45,9 +44,7 @@ const { getInboundStations, getOutboundStations, getEstimation } =
       <button
         class="quote-button text-white font-bold py-2 px-4 border-b-4"
         @click="getEstimation()"
-        :disabled="
-          inboundStation === '' || outboundStation === '' || quoteItems === ''
-        "
+        :disabled="inboundStation === '' || outboundStation === '' || quoteItems === ''"
       >
         Run Quote
       </button>
