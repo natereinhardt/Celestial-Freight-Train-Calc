@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
-import { getStations, getStaticData } from '@/services/googleSheetsService';
+import { defineStore } from 'pinia'
+import { getStations, getStaticData } from '@/services/googleSheetsService'
 export const estimationStore = defineStore('estimationStore', {
   state: () => ({
     loading: false,
@@ -22,7 +22,7 @@ export const estimationStore = defineStore('estimationStore', {
     collateral: 0,
     collateralCostPercentage: 0.01,
     estimation: null,
-    janiceCode: '',
+    janiceCode: ''
   }),
   getters: {
     getOutboundStations(state) {
@@ -30,102 +30,99 @@ export const estimationStore = defineStore('estimationStore', {
         return this.availableStations
           .filter((station) => this.inboundStation !== station.name)
           .map((station) => {
-            return station.name;
-          });
-      };
+            return station.name
+          })
+      }
     },
     getInboundStations(state) {
       return () => {
         return this.availableStations
           .filter((station) => this.outboundStation !== station.name)
           .map((station) => {
-            return station.name;
-          });
-      };
+            return station.name
+          })
+      }
     },
     getTotalReward(state) {
       return () => {
-        const calculation =
-          this.volumeMarkup * this.volume + this.collateralCost;
-        const ifElseReward =
-          calculation > this.minReward ? calculation : this.minReward;
-        state.totalReward = parseFloat(ifElseReward);
-        return (this.totalReward = parseFloat(ifElseReward));
-      };
+        const calculation = this.volumeMarkup * this.volume + this.collateralCost
+        const ifElseReward = calculation > this.minReward ? calculation : this.minReward
+        state.totalReward = parseFloat(ifElseReward)
+        return (this.totalReward = parseFloat(ifElseReward))
+      }
     },
     getVolumeCost(state) {
       return () => {
-        return (this.volumeCost = this.volumeMarkup * this.volume);
-      };
+        return (this.volumeCost = this.volumeMarkup * this.volume)
+      }
     },
     getCollateralCost(state) {
       return () => {
-        return (this.collateralCost =
-          this.jitaSellValue * this.collateralCostPercentage);
-      };
+        return (this.collateralCost = this.jitaSellValue * this.collateralCostPercentage)
+      }
     },
     getTotalCollateral(state) {
-      const collateralCostPercentage = this.getCollateralCostPercentage();
+      const collateralCostPercentage = this.getCollateralCostPercentage()
       return () => {
-        const calculation = collateralCostPercentage * this.collateral;
-        return (this.totalCollateral = Number.parseFloat(calculation));
-      };
+        const calculation = collateralCostPercentage * this.collateral
+        return (this.totalCollateral = Number.parseFloat(calculation))
+      }
     },
     getMinReward(state) {
       return () => {
-        let minReward = 1000000;
+        let minReward = 1000000
         this.staticData.forEach((data) => {
           if (data.key === 'minReward') {
-            minReward = parseFloat(data.value);
+            minReward = parseFloat(data.value)
           }
-        });
-        this.minReward = minReward;
-        return minReward;
-      };
+        })
+        this.minReward = minReward
+        return minReward
+      }
     },
     getMaxVolume(state) {
       return () => {
-        let maxVolume = 300000;
+        let maxVolume = 300000
         this.staticData.forEach((data) => {
           if (data.key === 'maxVolume') {
-            maxVolume = parseFloat(data.value);
+            maxVolume = parseFloat(data.value)
           }
-        });
-        return maxVolume;
-      };
+        })
+        return maxVolume
+      }
     },
     getMaxCollateral(state) {
       return () => {
-        let maxCollateral = 4000000000;
+        let maxCollateral = 4000000000
         this.staticData.forEach((data) => {
           if (data.key === 'maxCollateral') {
-            maxCollateral = parseFloat(data.value);
+            maxCollateral = parseFloat(data.value)
           }
-        });
-        return maxCollateral;
-      };
+        })
+        return maxCollateral
+      }
     },
     getCollateralCostPercentage(state) {
       return () => {
-        let collateralCostPercentage = 0.01;
+        let collateralCostPercentage = 0.01
         this.staticData.forEach((data) => {
           if (data.key === 'collateralCostPercentage') {
-            collateralCostPercentage = parseFloat(data.value);
+            collateralCostPercentage = parseFloat(data.value)
           }
-        });
-        return collateralCostPercentage;
-      };
+        })
+        return collateralCostPercentage
+      }
     },
     setStaticData(state) {
       return async () => {
-        return (this.staticData = await getStaticData());
-      };
+        return (this.staticData = await getStaticData())
+      }
     },
     setStations(state) {
       return async () => {
-        return (this.availableStations = await getStations());
-      };
-    },
+        return (this.availableStations = await getStations())
+      }
+    }
   },
 
   actions: {
@@ -134,31 +131,30 @@ export const estimationStore = defineStore('estimationStore', {
         method: 'POST',
         headers: {
           'Content-Type': 'text/plain',
-          Accept: 'application/json',
+          Accept: 'application/json'
         },
-        body: this.quoteItems,
-      };
-      this.estimation = null;
-      this.loading = true;
+        body: this.quoteItems
+      }
+      this.estimation = null
+      this.loading = true
       try {
         const response = await fetch(
           'https://janice.e-351.com/api/rest/v1/appraisal?key=BaSjUOMtnjzOyMllN92rJvUWgWdt8CRj&market=2&designation=appraisal&pricing=sell&persist=true&compactize=true&pricePercentage=1',
           requestOptions
-        );
-        const { totalSellPrice, code, totalVolume, items } =
-          await response.json();
-        this.volume = totalVolume;
-        this.janiceCode = code;
-        this.jitaSellValue = totalSellPrice;
-        this.collateral = totalSellPrice;
-        this.items = items;
-        console.log(jitaSellValue);
+        )
+        const { totalSellPrice, code, totalVolume, items } = await response.json()
+        this.volume = totalVolume
+        this.janiceCode = code
+        this.jitaSellValue = totalSellPrice
+        this.collateral = totalSellPrice
+        this.items = items
+        console.log(jitaSellValue)
       } catch (error) {
-        console.log(error);
-        this.error = error;
+        console.log(error)
+        this.error = error
       } finally {
-        this.loading = false;
+        this.loading = false
       }
-    },
-  },
-});
+    }
+  }
+})
