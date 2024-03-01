@@ -17,7 +17,7 @@ export const estimationStore = defineStore('estimationStore', {
     volume: 0,
     volumeMarkup: 1000,
     volumeCost: 0,
-    maxCollateral: 4000000000,
+    maxCollateral: 6000000000,
     totalCollateral: 0,
     collateral: 0,
     collateralCostPercentage: 0.01,
@@ -25,7 +25,7 @@ export const estimationStore = defineStore('estimationStore', {
     janiceCode: ''
   }),
   getters: {
-    getOutboundStations(state) {
+    getOutboundStations() {
       return () => {
         return this.availableStations
           .filter((station) => this.inboundStation !== station.name)
@@ -34,7 +34,7 @@ export const estimationStore = defineStore('estimationStore', {
           })
       }
     },
-    getInboundStations(state) {
+    getInboundStations() {
       return () => {
         return this.availableStations
           .filter((station) => this.outboundStation !== station.name)
@@ -43,32 +43,32 @@ export const estimationStore = defineStore('estimationStore', {
           })
       }
     },
-    getTotalReward(state) {
+    getTotalReward() {
       return () => {
         const calculation = this.volumeMarkup * this.volume + this.collateralCost
         const ifElseReward = calculation > this.minReward ? calculation : this.minReward
-        state.totalReward = parseFloat(ifElseReward)
+        this.totalReward = parseFloat(ifElseReward)
         return (this.totalReward = parseFloat(ifElseReward))
       }
     },
-    getVolumeCost(state) {
+    getVolumeCost() {
       return () => {
         return (this.volumeCost = this.volumeMarkup * this.volume)
       }
     },
-    getCollateralCost(state) {
+    getCollateralCost() {
       return () => {
         return (this.collateralCost = this.jitaSellValue * this.collateralCostPercentage)
       }
     },
-    getTotalCollateral(state) {
+    getTotalCollateral() {
       const collateralCostPercentage = this.getCollateralCostPercentage()
       return () => {
         const calculation = collateralCostPercentage * this.collateral
         return (this.totalCollateral = Number.parseFloat(calculation))
       }
     },
-    getMinReward(state) {
+    getMinReward() {
       return () => {
         let minReward = 1000000
         this.staticData.forEach((data) => {
@@ -80,7 +80,7 @@ export const estimationStore = defineStore('estimationStore', {
         return minReward
       }
     },
-    getMaxVolume(state) {
+    getMaxVolume() {
       return () => {
         let maxVolume = 300000
         this.staticData.forEach((data) => {
@@ -91,9 +91,9 @@ export const estimationStore = defineStore('estimationStore', {
         return maxVolume
       }
     },
-    getMaxCollateral(state) {
+    getMaxCollateral() {
       return () => {
-        let maxCollateral = 4000000000
+        let maxCollateral = 6000000000
         this.staticData.forEach((data) => {
           if (data.key === 'maxCollateral') {
             maxCollateral = parseFloat(data.value)
@@ -102,7 +102,7 @@ export const estimationStore = defineStore('estimationStore', {
         return maxCollateral
       }
     },
-    getCollateralCostPercentage(state) {
+    getCollateralCostPercentage() {
       return () => {
         let collateralCostPercentage = 0.01
         this.staticData.forEach((data) => {
@@ -113,12 +113,12 @@ export const estimationStore = defineStore('estimationStore', {
         return collateralCostPercentage
       }
     },
-    setStaticData(state) {
+    setStaticData() {
       return async () => {
         return (this.staticData = await getStaticData())
       }
     },
-    setStations(state) {
+    setStations() {
       return async () => {
         return (this.availableStations = await getStations())
       }

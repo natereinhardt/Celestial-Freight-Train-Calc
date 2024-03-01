@@ -65,17 +65,6 @@ const {
       <h3 class="my-2 italic">Totals</h3>
     </div>
     <QuoteLineItem
-      label="Total Collateral"
-      :value="jitaSellValue"
-      :compare1="collateral"
-      :compare2="maxCollateral"
-      :tooltip="`${jitaSellValue.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      })} (Jita Sell Value) ISK`"
-      subLabel="ISK"
-    />
-    <QuoteLineItem
       label="Collateral Cost"
       :value="getCollateralCost()"
       :tooltip="`${collateral} (Collateral) x ${collateralCostPercentage.toLocaleString(undefined, {
