@@ -6,7 +6,7 @@ import CreateContractHeader from '@/components/createContract/CreateContractHead
 import { createContractStore } from '@/stores/createContract'
 import { estimationStore } from '@/stores/estimation'
 
-const { outboundStation, inboundStation, items, volume, totalReward, collateral } =
+const { outboundStation, inboundStation, items, volume, totalReward, collateral, janiceCode } =
   storeToRefs(estimationStore())
 
 const { loading, error, contractTo } = storeToRefs(createContractStore())
@@ -30,7 +30,7 @@ const { loading, error, contractTo } = storeToRefs(createContractStore())
           </div>
           <div class="quote-line-item">
             <label class="label" for="name">Description</label>
-            <div class="value" type="text" id="name" name="name">(None)</div>
+            <div class="value" type="text" id="name" name="name">{{ janiceCode }}</div>
           </div>
           <div class="quote-line-item">
             <label class="label" for="name">Availability</label>
