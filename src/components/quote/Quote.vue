@@ -7,11 +7,9 @@ const {
   outboundStation,
   inboundStation,
   jitaSellValue,
-  minReward,
   maxVolume,
   volume,
   volumeMarkup,
-  maxCollateral,
   collateralCostPercentage,
   collateral,
   janiceCode
@@ -76,7 +74,7 @@ const {
     <QuoteLineItem
       label="Volume Cost"
       :value="getVolumeCost()"
-      :tooltip="`${volume.toLocaleString()} (Volumn) x ${volumeMarkup} (Volume Markup)`"
+      :tooltip="`${volume.toLocaleString()} (Volume) x ${volumeMarkup} (Volume Markup)`"
       subLabel="ISK"
     />
     <QuoteLineItem
@@ -87,7 +85,7 @@ const {
           maximumFractionDigits: 2
         })
       "
-      :tooltip="`( ${volume.toLocaleString()} (Volumn) x ${volumeMarkup} (Volume Markup) ) + ${getCollateralCost()} (Collateral Cost)`"
+      :tooltip="`( ${volume.toLocaleString()} (Volume) x ${volumeMarkup} (Volume Markup) ) + ${getCollateralCost()} (Collateral Cost)`"
       subLabel="ISK"
     />
   </div>

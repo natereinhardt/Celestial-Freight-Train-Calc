@@ -1,11 +1,9 @@
 <script setup>
-import QuoteLineItem from '@/components/quote/QuoteLineItem.vue';
 import { storeToRefs } from 'pinia';
 import { estimationStore } from '@/stores/estimation';
 
 const {
   maxVolume,
-  maxCollateral,
   getMaxCollateral,
 } = storeToRefs(estimationStore());
 </script>
