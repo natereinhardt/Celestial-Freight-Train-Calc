@@ -3,6 +3,7 @@ import { defineProps } from 'vue'
 import question from '@/assets/question.png'
 import Popper from 'vue3-popper'
 
+// eslint-disable-next-line no-unused-vars
 const props = defineProps({
   label: {
     type: String,
@@ -34,7 +35,9 @@ const props = defineProps({
       {{ value.toLocaleString() }} {{ subLabel }}
       <Popper
         :content="`${label} of ${value.toLocaleString()} exceeds the Max ${label} of ${compare2.toLocaleString()}. Please split up your items into multiple packages`"
-        hover arrow>
+        hover
+        arrow
+      >
         <img alt="tooltip logo" class="logo" :src="question" width="15" height="15" />
       </Popper>
     </div>

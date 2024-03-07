@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import { storeToRefs } from 'pinia';
 import { estimationStore } from '@/stores/estimation';

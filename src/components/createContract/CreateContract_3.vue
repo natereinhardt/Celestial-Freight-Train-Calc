@@ -5,22 +5,7 @@ import CreateContractHeader from '@/components/createContract/CreateContractHead
 import { storeToRefs } from 'pinia'
 import { estimationStore } from '@/stores/estimation'
 
-const {
-  outboundStation,
-  inboundStation,
-  jitaSellvalue,
-  totalReward,
-  minReward,
-  maxVolume,
-  volume,
-  volumeMarkup,
-  volumeCost,
-  maxCollateral,
-  totalCollateral,
-  collateral,
-  collateralCost,
-  janiceCode
-} = storeToRefs(estimationStore())
+const { inboundStation, totalReward, collateral, janiceCode } = storeToRefs(estimationStore())
 </script>
 
 <template>

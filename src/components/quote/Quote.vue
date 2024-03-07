@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import QuoteLineItem from '@/components/quote/QuoteLineItem.vue'
 import { storeToRefs } from 'pinia'
@@ -37,27 +38,51 @@ const { getTotalReward, getVolumeCost, getCollateralCost } = estimationStore()
     <QuoteLineItem label="Janice Code" :value="janiceCode" url="https://janice.e-351.com/a" />
     <QuoteLineItem label="From" :value="outboundStation" />
     <QuoteLineItem label="To" :value="inboundStation" />
-    <QuoteLineItem label="Volume" :value="volume" subLabel="m³" :compare1="volume" :compare2="maxVolume" />
+    <QuoteLineItem
+      label="Volume"
+      :value="volume"
+      subLabel="m³"
+      :compare1="volume"
+      :compare2="maxVolume"
+    />
     <QuoteLineItem label="Jita Sell Value" :value="jitaSellValue" subLabel="ISK" />
-    <QuoteLineItem label="Collateral" :value="collateral" :tooltip="`${jitaSellValue.toLocaleString(undefined, {
+    <QuoteLineItem
+      label="Collateral"
+      :value="collateral"
+      :tooltip="`${jitaSellValue.toLocaleString(undefined, {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
-      })} (Jita Sell Value) ISK`" subLabel="ISK" :compare1="collateral" :compare2="maxCollateral" />
+      })} (Jita Sell Value) ISK`"
+      subLabel="ISK"
+      :compare1="collateral"
+      :compare2="maxCollateral"
+    />
     <div class="border-t my-2">
       <h3 class="my-2 italic">Totals</h3>
     </div>
-    <QuoteLineItem label="Collateral Cost" :value="getCollateralCost()" :tooltip="`${collateral.toLocaleString()} (Collateral) x ${collateralCostPercentage} (Collateral Markup)`" subLabel="ISK" />
-    <QuoteLineItem label="Volume Cost" :value="getVolumeCost()"
+    <QuoteLineItem
+      label="Collateral Cost"
+      :value="getCollateralCost()"
+      :tooltip="`${collateral.toLocaleString()} (Collateral) x ${collateralCostPercentage} (Collateral Markup)`"
+      subLabel="ISK"
+    />
+    <QuoteLineItem
+      label="Volume Cost"
+      :value="getVolumeCost()"
       :tooltip="`${volume.toLocaleString()} (Volume) x ${volumeMarkup.toLocaleString()} (Volume Markup)`"
-      subLabel="ISK" />
-    <QuoteLineItem label="Total Reward" :value="
+      subLabel="ISK"
+    />
+    <QuoteLineItem
+      label="Total Reward"
+      :value="
         getTotalReward().toLocaleString(undefined, {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
         })
       "
       :tooltip="`( ${volume.toLocaleString()} (Volume) x ${volumeMarkup.toLocaleString()} (Volume Markup) ) + ${getCollateralCost()} (Collateral Cost)`"
-      subLabel="ISK" />
+      subLabel="ISK"
+    />
   </div>
 </template>
 

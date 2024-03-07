@@ -6,10 +6,10 @@ import CreateContractHeader from '@/components/createContract/CreateContractHead
 import { createContractStore } from '@/stores/createContract'
 import { estimationStore } from '@/stores/estimation'
 
-const { outboundStation, inboundStation, items, volume, totalReward, collateral, janiceCode } =
+const { outboundStation, inboundStation, volume, totalReward, collateral, janiceCode } =
   storeToRefs(estimationStore())
 
-const { loading, error, contractTo } = storeToRefs(createContractStore())
+const { contractTo } = storeToRefs(createContractStore())
 </script>
 
 <template>
