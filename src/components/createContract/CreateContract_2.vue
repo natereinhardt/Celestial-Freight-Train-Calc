@@ -1,11 +1,11 @@
 <script setup>
-import contractImg from '@/assets/contracts.png';
-import contractCourier from '@/assets/contractcourier.png';
-import CreateContractHeader from '@/components/createContract/CreateContractHeader.vue';
-import { storeToRefs } from 'pinia';
-import { estimationStore } from '@/stores/estimation';
+import contractImg from '@/assets/contracts.png'
+import contractCourier from '@/assets/contractcourier.png'
+import CreateContractHeader from '@/components/createContract/CreateContractHeader.vue'
+import { storeToRefs } from 'pinia'
+import { estimationStore } from '@/stores/estimation'
 
-const { outboundStation, items, volume } = storeToRefs(estimationStore());
+const { outboundStation, items, volume } = storeToRefs(estimationStore())
 </script>
 
 <template>
@@ -26,9 +26,7 @@ const { outboundStation, items, volume } = storeToRefs(estimationStore());
               <font-awesome-icon :icon="['fas', 'caret-down']" />
             </div>
             <div>
-              <table
-                class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
-              >
+              <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead>
                   <tr>
                     <th>

@@ -5,11 +5,11 @@
       <img
         alt="Ceca logo"
         class="logo"
-        src="@/assets/CECA_Logo_Submit.png"
+        src="@/assets/S0B_Alliance_Logo-nobg.png"
         width="75"
         height="75"
       />
-      <h1 class="brand">Celestial Freight Train</h1>
+      <h1 class="brand">Ven0m Ltd.</h1>
     </div>
 
     <nav class="nav">

@@ -1,73 +1,41 @@
 <script setup>
-import question from '@/assets/question.png';
+import { defineProps } from 'vue'
+import question from '@/assets/question.png'
+import Popper from 'vue3-popper'
 
-import Popper from 'vue3-popper';
-
-defineProps({
+const props = defineProps({
   label: {
     type: String,
-    required: true,
+    required: true
   },
   value: {
-    required: true,
+    required: true
   },
-  subLabel: {
-    required: false,
-    type: String,
-  },
-  tooltip: {
-    required: false,
-    type: String,
-  },
-  url: {
-    requied: false,
-    type: String,
-  },
-  compare1: {
-    required: false,
-    type: Number,
-  },
-  compare2: {
-    required: false,
-    type: Number,
-  },
-});
+  subLabel: String,
+  tooltip: String,
+  url: String,
+  compare1: Number,
+  compare2: Number
+})
 </script>
 
 <template>
   <div class="quote-line-item">
     <div class="label">
       {{ label }}:
-      <Popper :class="tooltip" v-if="tooltip" :content="tooltip" hover arrow>
-        <img
-          alt="tooltip logo"
-          class="logo"
-          :src="question"
-          width="15"
-          height="15"
-        />
+      <Popper v-if="tooltip" :content="tooltip" hover arrow>
+        <img alt="tooltip logo" class="logo" :src="question" width="15" height="15" />
       </Popper>
     </div>
     <div v-if="url" class="value">
-      <a :href="`${url}/${value}`" target="_blank"
-        >{{ value.toLocaleString() }} {{ subLabel }}</a
-      >
+      <a :href="`${url}/${value}`" target="_blank">{{ value }} {{ subLabel }}</a>
     </div>
     <div v-else-if="compare1 > compare2" class="value-warn">
       {{ value.toLocaleString() }} {{ subLabel }}
       <Popper
-        :class="tooltip"
         :content="`${label} of ${value.toLocaleString()} exceeds the Max ${label} of ${compare2.toLocaleString()}. Please split up your items into multiple packages`"
-        hover
-        arrow
-      >
-        <img
-          alt="tooltip logo"
-          class="logo"
-          :src="question"
-          width="15"
-          height="15"
-        />
+        hover arrow>
+        <img alt="tooltip logo" class="logo" :src="question" width="15" height="15" />
       </Popper>
     </div>
     <div v-else class="value">{{ value.toLocaleString() }} {{ subLabel }}</div>
@@ -75,11 +43,12 @@ defineProps({
 </template>
 
 <style scoped>
-:deep(.popper) {
+.popper {
   font-size: 0.75em;
   white-space: nowrap;
   font-weight: bold;
 }
+
 .quote-line-item {
   display: flex;
   justify-content: space-between;

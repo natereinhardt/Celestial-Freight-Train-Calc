@@ -2,33 +2,27 @@
 defineProps({
   title: {
     type: String,
-    required: true,
+    required: true
   },
   titleImage: {
     type: String,
-    require: true,
+    require: true
   },
   subHeader: {
     type: String,
-    require: true,
+    require: true
   },
   subHeaderImage: {
     type: String,
-    require: true,
-  },
-});
+    require: true
+  }
+})
 </script>
 
 <template>
   <div>
     <div class="title">
-      <img
-        alt="Contract logo"
-        class="logo"
-        :src="titleImage"
-        width="35"
-        height="35"
-      />
+      <img alt="Contract logo" class="logo" :src="titleImage" width="35" height="35" />
       <h2 class="">{{ title }}</h2>
     </div>
     <div class="subHeader">

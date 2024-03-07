@@ -1,13 +1,12 @@
-<script setup>
-import Quote from '@/components/quote/Quote.vue';
-import Estimation from '@/components/estimation/Estimation.vue';
-import ContractCreation from '@/components/createContract/ContractCreation.vue';
+<script async setup>
+import Quote from '@/components/quote/Quote.vue'
+import Estimation from '@/components/estimation/Estimation.vue'
+import ContractCreation from '@/components/createContract/ContractCreation.vue'
 import Welcome from '@/components/Welcome.vue'
 
 import { estimationStore } from '@/stores/estimation'
 const { setStations, setStaticData } = estimationStore()
 
-await setStations()
 await setStaticData()
 </script>
 <template>
@@ -20,7 +19,6 @@ await setStaticData()
         <div class="content-wrapper">
           <Estimation class="estimation" />
           <Quote class="quote" />
-
         </div>
         <div>
           <ContractCreation class="contract-creation" />
@@ -32,7 +30,7 @@ await setStaticData()
     </template>
   </Suspense>
 </template>
-  <style>
+<style>
 @import '@/assets/base.css';
 
 .wrapper {
@@ -52,14 +50,14 @@ await setStaticData()
 }
 
 .estimation {
-  order: 1
+  order: 1;
 }
 
 .quote {
-  order: 2
+  order: 2;
 }
 
 .contract-creation {
-  order: 3
+  order: 3;
 }
 </style>

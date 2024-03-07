@@ -1,21 +1,15 @@
 <script setup>
-import { storeToRefs } from 'pinia';
-import contractImg from '@/assets/contracts.png';
-import courierContractImg from '@/assets/contractcourier.png';
-import CreateContractHeader from '@/components/createContract/CreateContractHeader.vue';
-import { createContractStore } from '@/stores/createContract';
-import { estimationStore } from '@/stores/estimation';
+import { storeToRefs } from 'pinia'
+import contractImg from '@/assets/contracts.png'
+import courierContractImg from '@/assets/contractcourier.png'
+import CreateContractHeader from '@/components/createContract/CreateContractHeader.vue'
+import { createContractStore } from '@/stores/createContract'
+import { estimationStore } from '@/stores/estimation'
 
-const {
-  outboundStation,
-  inboundStation,
-  items,
-  volume,
-  totalReward,
-  collateral,
-} = storeToRefs(estimationStore());
+const { outboundStation, inboundStation, items, volume, totalReward, collateral, janiceCode } =
+  storeToRefs(estimationStore())
 
-const { loading, error, contractTo } = storeToRefs(createContractStore());
+const { loading, error, contractTo } = storeToRefs(createContractStore())
 </script>
 
 <template>
@@ -36,7 +30,7 @@ const { loading, error, contractTo } = storeToRefs(createContractStore());
           </div>
           <div class="quote-line-item">
             <label class="label" for="name">Description</label>
-            <div class="value" type="text" id="name" name="name">(None)</div>
+            <div class="value" type="text" id="name" name="name">{{ janiceCode }}</div>
           </div>
           <div class="quote-line-item">
             <label class="label" for="name">Availability</label>
@@ -56,9 +50,7 @@ const { loading, error, contractTo } = storeToRefs(createContractStore());
           </div>
           <div class="quote-line-item">
             <label class="label" for="name">Broker's Fee</label>
-            <div class="value" type="text" id="name" name="name">
-              10,000 ISK
-            </div>
+            <div class="value" type="text" id="name" name="name">10,000 ISK</div>
           </div>
           <div class="quote-line-item">
             <label class="label" for="name">Deposit</label>
@@ -66,7 +58,7 @@ const { loading, error, contractTo } = storeToRefs(createContractStore());
               {{
                 totalReward.toLocaleString(undefined, {
                   minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
+                  maximumFractionDigits: 2
                 })
               }}
               ISK
@@ -79,7 +71,7 @@ const { loading, error, contractTo } = storeToRefs(createContractStore());
               {{
                 totalReward.toLocaleString(undefined, {
                   minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
+                  maximumFractionDigits: 2
                 })
               }}
               ISK
@@ -91,7 +83,7 @@ const { loading, error, contractTo } = storeToRefs(createContractStore());
               {{
                 collateral.toLocaleString(undefined, {
                   minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
+                  maximumFractionDigits: 2
                 })
               }}
               ISK
@@ -115,9 +107,7 @@ const { loading, error, contractTo } = storeToRefs(createContractStore());
           </div>
           <div class="quote-line-item">
             <label class="label" for="name">Items</label>
-            <div class="value" type="text" id="name" name="name">
-              Your items here
-            </div>
+            <div class="value" type="text" id="name" name="name">Your items here</div>
           </div>
         </div>
       </div>

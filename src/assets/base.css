@@ -25,33 +25,32 @@
   --ccp-container-background-color: rgb(31 41 55);
   --ccp-hover-color: hsla(160, 100%, 37%, 0.2);
 
-
   --ms-font-size: 1rem;
   --ms-line-height: 1.375;
-  --ms-bg: #FFFFFF;
-  --ms-bg-disabled: #F3F4F6;
-  --ms-border-color: #D1D5DB;
+  --ms-bg: #ffffff;
+  --ms-bg-disabled: #f3f4f6;
+  --ms-border-color: #d1d5db;
   --ms-border-width: 1px;
   --ms-radius: 4px;
   --ms-py: 0.5rem;
   --ms-px: 0.875rem;
   --ms-ring-width: 3px;
-  --ms-ring-color: #10B98130;
-  --ms-placeholder-color: #9CA3AF;
+  --ms-ring-color: #10b98130;
+  --ms-placeholder-color: #9ca3af;
   --ms-max-height: 10rem;
 
-  --ms-spinner-color: #10B981;
+  --ms-spinner-color: #10b981;
   --ms-caret-color: #999999;
   --ms-clear-color: #999999;
   --ms-clear-color-hover: #000000;
-    
+
   --ms-tag-font-size: 0.875rem;
   --ms-tag-line-height: 1.25rem;
   --ms-tag-font-weight: 600;
-  --ms-tag-bg: #10B981;
-  --ms-tag-bg-disabled: #9CA3AF;
-  --ms-tag-color: #FFFFFF;
-  --ms-tag-color-disabled: #FFFFFF;
+  --ms-tag-bg: #10b981;
+  --ms-tag-bg-disabled: #9ca3af;
+  --ms-tag-color: #ffffff;
+  --ms-tag-color-disabled: #ffffff;
   --ms-tag-radius: 4px;
   --ms-tag-py: 0.125rem;
   --ms-tag-px: 0.5rem;
@@ -65,42 +64,42 @@
   --ms-tag-remove-mx: 0.125rem;
 
   --ms-dropdown-bg: var(--ccp-container-background-color);
-  --ms-dropdown-border-color: #D1D5DB;
+  --ms-dropdown-border-color: #d1d5db;
   --ms-dropdown-border-width: 1px;
   --ms-dropdown-radius: 4px;
 
   --ms-group-label-py: 0.3rem;
   --ms-group-label-px: 0.75rem;
   --ms-group-label-line-height: 1.375;
-  --ms-group-label-bg: #E5E7EB;
+  --ms-group-label-bg: #e5e7eb;
   --ms-group-label-color: #374151;
-  --ms-group-label-bg-pointed: #D1D5DB;
+  --ms-group-label-bg-pointed: #d1d5db;
   --ms-group-label-color-pointed: #374151;
-  --ms-group-label-bg-disabled: #F3F4F6;
-  --ms-group-label-color-disabled: #D1D5DB;
+  --ms-group-label-bg-disabled: #f3f4f6;
+  --ms-group-label-color-disabled: #d1d5db;
   --ms-group-label-bg-selected: #059669;
-  --ms-group-label-color-selected: #FFFFFF;
+  --ms-group-label-color-selected: #ffffff;
   --ms-group-label-bg-selected-pointed: #0c9e70;
-  --ms-group-label-color-selected-pointed: #FFFFFF;
+  --ms-group-label-color-selected-pointed: #ffffff;
   --ms-group-label-bg-selected-disabled: #75cfb1;
-  --ms-group-label-color-selected-disabled: #D1FAE5;
+  --ms-group-label-color-selected-disabled: #d1fae5;
 
   --ms-option-font-size: 1rem;
   --ms-option-line-height: 1.375;
   --ms-option-bg-pointed: var(--ccp-hover-color);
   --ms-option-color-pointed: #FFFFF;
   --ms-option-bg-selected: var(--ccp-hover-color);
-  --ms-option-color-selected: #FFFFFF;
-  --ms-option-bg-disabled: #FFFFFF;
-  --ms-option-color-disabled: #D1D5DB;
+  --ms-option-color-selected: #ffffff;
+  --ms-option-bg-disabled: #ffffff;
+  --ms-option-color-disabled: #d1d5db;
   --ms-option-bg-selected-pointed: #FFFFF;
   --ms-option-color-selected-pointed: var(--ccp-modal-top-border-color);
-  --ms-option-bg-selected-disabled: #FFFFFF;
-  --ms-option-color-selected-disabled: #D1FAE5;
+  --ms-option-bg-selected-disabled: #ffffff;
+  --ms-option-color-selected-disabled: #d1fae5;
   --ms-option-py: 0.5rem;
   --ms-option-px: 0.75rem;
 
-  --ms-empty-color: #4B5563;
+  --ms-empty-color: #4b5563;
 
   --popper-theme-background-color: rgb(34, 32, 32);
   --popper-theme-background-color-hover: rgb(34, 32, 32);
@@ -109,17 +108,17 @@
   --popper-theme-border-radius: 20px;
   --popper-theme-padding: 1em;
 }
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
+:root {
+  --color-background: var(--vt-c-black);
+  --color-background-soft: var(--vt-c-black-soft);
+  --color-background-mute: var(--vt-c-black-mute);
 
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
+  --color-border: var(--vt-c-divider-dark-2);
+  --color-border-hover: var(--vt-c-divider-dark-1);
 
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
+  --color-heading: var(--vt-c-text-dark-1);
+  --color-text: var(--vt-c-text-dark-2);
+}
 
 *,
 *::before,
@@ -129,22 +128,35 @@
   position: relative;
   font-weight: normal;
 }
-.container { 
+.container {
   border-top: 1px;
   border-color: var(--ccp-modal-top-border-color);
   border-style: solid;
   padding: 1em;
-  margin: .5em;
+  margin: 0.5em;
 }
 
 body {
   min-height: 100vh;
   color: white;
   background: var(--color-background);
-  transition: color 0.5s, background-color 0.5s;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
   line-height: 1.6;
-  font-family: 'Shentox', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family:
+    'Shentox',
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
     sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
@@ -153,12 +165,12 @@ body {
   font-weight: bold;
 }
 
-.radio input[type="radio"] {
+.radio input[type='radio'] {
   position: absolute;
   opacity: 0;
 }
 
-.radio input[type="radio"]+.radio-label:before {
+.radio input[type='radio'] + .radio-label:before {
   content: '';
   background: black;
   border-radius: 100%;
@@ -167,23 +179,22 @@ body {
   width: 1em;
   height: 1em;
   position: relative;
-  margin-right: .5em;
+  margin-right: 0.5em;
   vertical-align: top;
   text-align: center;
   transition: all 250ms ease;
 }
 
-.radio input[type="radio"]:checked+.radio-label:before {
+.radio input[type='radio']:checked + .radio-label:before {
   background-color: rgb(8 145 178);
   box-shadow: inset 0 0 0 3px black;
 }
 
-.radio input[type="radio"]:focus+.radio-label:before {
+.radio input[type='radio']:focus + .radio-label:before {
   outline: none;
   border-color: #3197ee;
 }
 
-.radio input[type="radio"]+.radio-label:empty:before {
+.radio input[type='radio'] + .radio-label:empty:before {
   margin-right: 0;
 }
-

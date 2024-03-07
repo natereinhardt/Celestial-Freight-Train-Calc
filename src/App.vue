@@ -1,7 +1,7 @@
 <script async setup>
-import TitleBar from '@/components/TitleBar.vue';
-import FooterBar from '@/components/FooterBar.vue';
-import { RouterView } from 'vue-router';
+import TitleBar from '@/components/TitleBar.vue'
+import FooterBar from '@/components/FooterBar.vue'
+import { RouterView } from 'vue-router'
 </script>
 <template>
   <Suspense>

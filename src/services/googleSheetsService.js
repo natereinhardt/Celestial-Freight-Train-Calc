@@ -1,39 +1,36 @@
-'use strict';
+'use strict'
 
-const sheetId = '18eSOZxxeYb5GPDpBSC37VbSiH40DMXoFHTuOl6Eo_Kg';
-const accountKey = 'AIzaSyDoM0R5SS5Hb213c6cjeYMRDxFCv1o0kys';
+const sheetId = '1gZyLBpo31W3YwEBOOQIE4yBDOLs2YWeZ5OKnKVpaPJo'
+const accountKey = 'AIzaSyDoM0R5SS5Hb213c6cjeYMRDxFCv1o0kys'
 
 export const getStations = async () => {
-  let availableStations = [];
+  let availableStations = []
   try {
-    const tabName = 'Available-Stations';
-    availableStations = await getSheetData(sheetId, tabName);
-    return availableStations;
+    const tabName = 'Available-Stations'
+    availableStations = await getSheetData(sheetId, tabName)
+    return availableStations
   } catch (error) {
-    console.log(error);
+    console.log(error)
   } finally {
-    console.log(
-      'Finished getting Available Stations from Google Sheet',
-      availableStations
-    );
+    console.log('Finished getting Available Stations from Google Sheet', availableStations)
   }
-};
+}
 
 export const getStaticData = async () => {
-  let staticData = [];
+  let staticData = []
   try {
-    const tabName = 'Static-Values';
-    staticData = await getSheetData(sheetId, tabName);
-    return staticData;
+    const tabName = 'Static-Values'
+    staticData = await getSheetData(sheetId, tabName)
+    return staticData
   } catch (error) {
-    console.log(error);
+    console.log(error)
   } finally {
-    console.log('Finished getting Static-Values from Google Sheet', staticData);
+    console.log('Finished getting Static-Values from Google Sheet', staticData)
   }
-};
+}
 
 const getSheetData = async (id, tabName) => {
-  let sheetDataAsJson = [];
+  let sheetDataAsJson = []
   try {
     const url =
       'https://sheets.googleapis.com/v4/spreadsheets/' +
@@ -41,37 +38,37 @@ const getSheetData = async (id, tabName) => {
       '/values/' +
       tabName +
       '?key=' +
-      accountKey;
-    const response = await fetch(url);
-    const sheetData = await response.json();
-    sheetDataAsJson = await buildObject(sheetData);
-    return sheetDataAsJson;
+      accountKey
+    const response = await fetch(url)
+    const sheetData = await response.json()
+    sheetDataAsJson = await buildObject(sheetData)
+    return sheetDataAsJson
   } catch (error) {
-    console.log(error);
+    console.log(error)
   } finally {
     console.log(
       `Finished making call to google sheets to get data from Sheet: ${id} Tab: ${tabName}`,
       sheetDataAsJson
-    );
+    )
   }
-};
+}
 const buildObject = async (sheetData) => {
-  let rows = [];
-  const sheetValues = sheetData.values;
+  let rows = []
+  const sheetValues = sheetData.values
   for (let value in sheetValues) {
-    let rowObject = {};
+    let rowObject = {}
     for (let values in sheetValues[value]) {
-      rowObject[sheetValues[0][values]] = sheetValues[value][values];
+      rowObject[sheetValues[0][values]] = sheetValues[value][values]
     }
-    rows.push(rowObject);
+    rows.push(rowObject)
   }
-  rows.shift();
-  return rows;
-};
+  rows.shift()
+  return rows
+}
 
 const GoogleSheetsService = {
   getStations,
-  getStaticData,
-};
+  getStaticData
+}
 
-export default GoogleSheetsService;
+export default GoogleSheetsService
