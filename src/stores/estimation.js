@@ -15,12 +15,13 @@ export const estimationStore = defineStore('estimationStore', {
     totalReward: 0,
     maxVolume: 300000,
     volume: 0,
-    volumeMarkup: 1000,
+    volumeMarkup: 200,
     volumeCost: 0,
     maxCollateral: 6000000000,
     totalCollateral: 0,
     collateral: 0,
     collateralCostPercentage: 0.01,
+
     estimation: null,
     janiceCode: ''
   }),
@@ -68,59 +69,30 @@ export const estimationStore = defineStore('estimationStore', {
         return (this.totalCollateral = Number.parseFloat(calculation))
       }
     },
-    getMinReward() {
-      return () => {
-        let minReward = 1000000
-        this.staticData.forEach((data) => {
-          if (data.key === 'minReward') {
-            minReward = parseFloat(data.value)
-          }
-        })
-        this.minReward = minReward
-        return minReward
-      }
-    },
-    getMaxVolume() {
-      return () => {
-        let maxVolume = 300000
-        this.staticData.forEach((data) => {
-          if (data.key === 'maxVolume') {
-            maxVolume = parseFloat(data.value)
-          }
-        })
-        return maxVolume
-      }
-    },
-    getMaxCollateral() {
-      return () => {
-        let maxCollateral = 6000000000
-        this.staticData.forEach((data) => {
-          if (data.key === 'maxCollateral') {
-            maxCollateral = parseFloat(data.value)
-          }
-        })
-        return maxCollateral
-      }
-    },
-    getCollateralCostPercentage() {
-      return () => {
-        let collateralCostPercentage = 0.01
-        this.staticData.forEach((data) => {
-          if (data.key === 'collateralCostPercentage') {
-            collateralCostPercentage = parseFloat(data.value)
-          }
-        })
-        return collateralCostPercentage
-      }
-    },
     setStaticData() {
       return async () => {
-        return (this.staticData = await getStaticData())
-      }
-    },
-    setStations() {
-      return async () => {
-        return (this.availableStations = await getStations())
+        this.staticData = await getStaticData()
+        this.availableStations = await getStations()
+        this.staticData.forEach((data) => {
+          if (data.key === 'maxCollateral') {
+            this.maxCollateral = parseFloat(data.value)
+          }
+          if (data.key === 'collateralCostPercentage') {
+            this.collateralCostPercentage = parseFloat(data.value)
+          }
+          if (data.key === 'costPerMeterCubed') {
+            this.volumeMarkup = parseFloat(data.value)
+          }
+          if (data.key === 'maxCollateral') {
+            this.maxCollateral = parseFloat(data.value)
+          }
+          if (data.key === 'minReward') {
+            this.minReward = parseFloat(data.value)
+          }
+          if (data.key === 'maxVolume') {
+            this.maxVolume = parseFloat(data.value)
+          }
+        })
       }
     }
   },
@@ -148,7 +120,7 @@ export const estimationStore = defineStore('estimationStore', {
         this.jitaSellValue = totalSellPrice
         this.collateral = totalSellPrice
         this.items = items
-        console.log(jitaSellValue)
+        console.log(totalSellPrice)
       } catch (error) {
         console.log(error)
         this.error = error

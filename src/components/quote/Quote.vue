@@ -12,17 +12,12 @@ const {
   volumeMarkup,
   collateralCostPercentage,
   collateral,
-  janiceCode
+  janiceCode,
+  maxCollateral,
+  minReward
 } = storeToRefs(estimationStore())
 
-const {
-  getTotalReward,
-  getVolumeCost,
-  getCollateralCost,
-  getMinReward,
-  getMaxVolume,
-  getMaxCollateral
-} = estimationStore()
+const { getTotalReward, getVolumeCost, getCollateralCost } = estimationStore()
 </script>
 
 <template>
@@ -32,9 +27,9 @@ const {
     <div class="border-t my-2">
       <h3 class="my-2 italic">Limits</h3>
     </div>
-    <QuoteLineItem label="Min Reward:" :value="getMinReward()" subLabel="ISK" />
-    <QuoteLineItem label="Max Volume:" :value="getMaxVolume()" subLabel="m³" />
-    <QuoteLineItem label="Max Collateral:" :value="getMaxCollateral()" subLabel="ISK" />
+    <QuoteLineItem label="Min Reward:" :value="minReward" subLabel="ISK" />
+    <QuoteLineItem label="Max Volume:" :value="maxVolume" subLabel="m³" />
+    <QuoteLineItem label="Max Collateral:" :value="maxCollateral" subLabel="ISK" />
 
     <div class="border-t my-2">
       <h3 class="my-2 italic">Package Info</h3>
