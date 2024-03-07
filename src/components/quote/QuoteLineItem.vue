@@ -31,8 +31,10 @@ const props = defineProps({
       <a :href="`${url}/${value}`" target="_blank">{{ value }} {{ subLabel }}</a>
     </div>
     <div v-else-if="compare1 > compare2" class="value-warn">
-      {{ value }} {{ subLabel }}
-      <Popper :content="`${label} of ${value} exceeds the Max ${label} of ${compare2}. Please split up your items into multiple packages`" hover arrow>
+      {{ value.toLocaleString() }} {{ subLabel }}
+      <Popper
+        :content="`${label} of ${value.toLocaleString()} exceeds the Max ${label} of ${compare2.toLocaleString()}. Please split up your items into multiple packages`"
+        hover arrow>
         <img alt="tooltip logo" class="logo" :src="question" width="15" height="15" />
       </Popper>
     </div>

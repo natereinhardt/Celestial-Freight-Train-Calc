@@ -21,7 +21,6 @@ export const estimationStore = defineStore('estimationStore', {
     totalCollateral: 0,
     collateral: 0,
     collateralCostPercentage: 0.01,
-
     estimation: null,
     janiceCode: ''
   }),
