@@ -2,15 +2,8 @@
 import Multiselect from '@vueform/multiselect'
 import { storeToRefs } from 'pinia'
 import { estimationStore } from '@/stores/estimation'
-const {
-  loading,
-  error,
-  outboundStation,
-  inboundStation,
-  quoteItems,
-  outboundStations,
-  inboundStations
-} = storeToRefs(estimationStore())
+
+const { outboundStation, inboundStation, quoteItems } = storeToRefs(estimationStore())
 const { getInboundStations, getOutboundStations, getEstimation } = estimationStore()
 </script>
 

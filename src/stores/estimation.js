@@ -15,7 +15,8 @@ export const estimationStore = defineStore('estimationStore', {
     totalReward: 0,
     maxVolume: 300000,
     volume: 0,
-    volumeMarkup: 200,
+    volumeMarkup: 0,
+    defaultVolumeMarkup: 0,
     volumeCost: 0,
     maxCollateral: 6000000000,
     totalCollateral: 0,
@@ -72,6 +73,7 @@ export const estimationStore = defineStore('estimationStore', {
       return async () => {
         this.staticData = await getStaticData()
         this.availableStations = await getStations()
+        console.log(this.availableStations)
         this.staticData.forEach((data) => {
           if (data.key === 'maxCollateral') {
             this.maxCollateral = parseFloat(data.value)
@@ -80,6 +82,7 @@ export const estimationStore = defineStore('estimationStore', {
             this.collateralCostPercentage = parseFloat(data.value)
           }
           if (data.key === 'costPerMeterCubed') {
+            this.defaultVolumeMarkup = parseFloat(data.value)
             this.volumeMarkup = parseFloat(data.value)
           }
           if (data.key === 'maxCollateral') {
@@ -98,6 +101,15 @@ export const estimationStore = defineStore('estimationStore', {
 
   actions: {
     async getEstimation() {
+      let highestMarkup = this.defaultVolumeMarkup
+      this.availableStations.forEach((station) => {
+        if (station.name === this.outboundStation || station.name === this.inboundStation) {
+          if (station.markup > highestMarkup) {
+            highestMarkup = station.markup
+          }
+        }
+      })
+      this.volumeMarkup = highestMarkup
       const requestOptions = {
         method: 'POST',
         headers: {
